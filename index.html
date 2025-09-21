@@ -278,6 +278,19 @@
             animation-delay: 0.4s;
         }
 
+        @keyframes slowMove {
+        0%   { transform: translateY(0) rotate(0deg); }
+        25%  { transform: translateY(-8px) rotate(-1deg); }
+        50%  { transform: translateY(0) rotate(0deg); }
+        75%  { transform: translateY(8px) rotate(1deg); }
+        100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .slow-move {
+        animation: slowMove 6s ease-in-out infinite;
+        }
+                
+
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 antialiased">
@@ -426,31 +439,34 @@
             </div>
         </section>
 
-      <!-- Vision & Mission Section -->
-        <section class="py-25 md:py-24 bg-white">
+        <!-- Vision & Mission Section -->
+        <section class="py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center justify-between">
-                    
-                    <!-- Left Image -->
-                    <div class="w-full md:w-1/4 flex justify-center md:justify-start mb-8 md:mb-0 fade-element" >
-                        <img src="download.jpeg" alt="Left character" class="h-64 md:h-80 object-contain fade-element">
+                
+                <!-- Left Image -->
+                <div class="w-full md:w-1/4 flex justify-center md:justify-start mb-8 md:mb-0 fade-element slide-left">
+                    <img src="download.jpeg" 
+                        alt="Left character" 
+                        class="h-80 md:h-[28rem] object-contain transition duration-700 ease-in-out hover:scale-110 slow-move">
                     </div>
+                <!-- Text -->
+                <div class="w-full md:w-1/2 text-center md:text-left px-4 fade-element">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-700 mb-4">Our Mission</h3>
+                    <p class="text-gray-500 text-lg mb-6">
+                    Our mission is to send you sales—if we don’t, we fail. Sit back and watch your business grow as we have brands on our platform that can send you orders directly from their customers.
+                    </p>
+                    <button class="px-8 py-3 border border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition duration-300">
+                    SCHEDULE A DEMO
+                    </button>
+                </div>
 
-                    <!-- Text in the Middle -->
-                    <div class="w-full md:w-1/2 text-center md:text-left px-4">
-                        <h3 class="text-3xl md:text-4xl font-bold text-gray-700 mb-4 fade-element">Our Mission</h3>
-                        <p class="text-gray-500 text-lg mb-6 fade-element">
-                            Our mission is to send you sales—if we don’t, we fail. Sit back and watch your business grow as we have brands on our platform that can send you orders directly from their customers.
-                        </p>
-                        <button class="px-8 py-3 border border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition duration-300 fade-element">
-                            SCHEDULE A DEMO
-                        </button>
-                    </div>
-
-                    <!-- Right Image -->
-                    <div class="w-full md:w-1/4 flex justify-center md:justify-end fade-element">
-                        <img src="mission-2.png" alt="Right characters" class="h-64 md:h-80 object-contain">
-                    </div>
+                <!-- Right Image -->
+                <div class="w-full md:w-1/4 flex justify-center md:justify-end fade-element slide-right">
+                    <img src="mission-2.png" 
+                        alt="Right characters" 
+                        class="h-72 md:h-96 object-contain transition duration-700 ease-in-out hover:scale-110">
+                </div>
 
                 </div>
             </div>
@@ -962,51 +978,79 @@
             </div>
         </section>
 
-        <!-- Target Markets Section -->
-        <section class="py-16 md:py-24 bg-white pattern-bg">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 animate-fadeIn">Our Target Markets</h2>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto animate-fadeIn" style="animation-delay: 0.2s;">
-                        We serve a diverse range of clients, tailoring our expertise to meet their unique industry-specific needs.
-                    </p>
-                </div>
+<!-- Target Markets Section -->
+<section class="py-16 md:py-24 bg-white pattern-bg">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 animate-fadeIn">
+        Our Target Markets
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto animate-fadeIn" style="animation-delay: 0.2s;">
+        We serve a diverse range of clients, tailoring our expertise to meet their unique industry-specific needs.
+      </p>
+    </div>
 
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-                    <!-- Market Card -->
-                    <div class="flex flex-col items-center text-center p-6 bg-gradient-to-br from-teal-600 to-cyan-700 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 0.4s;">
-                        <div class="text-5xl text-white mb-4"><i class="fas fa-money-check-alt"></i></div>
-                        <h4 class="text-xl font-semibold text-white mb-2">Financial Institutions</h4>
-                        <p class="text-white text-sm">Banks, Insurance, Microfinance, Investment Firms</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center p-6 bg-gradient-to-br from-teal-600 to-cyan-700 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 0.6s;">
-                        <div class="text-5xl text-white mb-4"><i class="fas fa-building"></i></div>
-                        <h4 class="text-xl font-semibold text-white mb-2">Corporations</h4>
-                        <p class="text-white text-sm">Multinationals, SMEs, Family Businesses</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center p-6 bg-gradient-to-br from-teal-600 to-cyan-700 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 0.8s;">
-                        <div class="text-5xl text-white mb-4"><i class="fas fa-gavel"></i></div>
-                        <h4 class="text-xl font-semibold text-white mb-2">Government Entities</h4>
-                        <p class="text-white text-sm">Ministries, Agencies, Public Enterprises</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center p-6 bg-gradient-to-br from-teal-600 to-cyan-700 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 1s;">
-                        <div class="text-5xl text-white mb-4"><i class="fas fa-hands-helping"></i></div>
-                        <h4 class="text-xl font-semibold text-white mb-2">Nonprofit Organizations</h4>
-                        <p class="text-white text-sm">NGOs, Foundations, Social Enterprises</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center p-6 bg-gradient-to-br from-teal-600 to-cyan-700 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 1.2s;">
-                        <div class="text-5xl text-white mb-4"><i class="fas fa-rocket"></i></div>
-                        <h4 class="text-xl font-semibold text-white mb-2">Startups & Entrepreneurs</h4>
-                        <p class="text-white text-sm">Early-stage, High-Growth Ventures</p>
-                    </div>
-                    <div class="flex flex-col items-center text-center p-6 bg-gradient-to-br from-teal-600 to-cyan-700 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 1.4s;">
-                        <div class="text-5xl text-white mb-4"><i class="fas fa-book"></i></div>
-                        <h4 class="text-xl font-semibold text-white mb-2">Academic & Research Institutions</h4>
-                        <p class="text-white text-sm">Universities, Research Centers, Think Tanks</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- Animated Market Cards -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      
+      <!-- Card -->
+      <div class="group bg-white p-8 rounded-2xl shadow-lg transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl animate-fadeIn">
+        <div class="flex justify-center items-center w-16 h-16 rounded-full bg-teal-100 text-teal-600 text-3xl mb-6 group-hover:scale-110 transition">
+          <i class="fas fa-money-check-alt"></i>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">Financial Institutions</h4>
+        <p class="text-gray-600 text-sm">Banks, Insurance, Microfinance, Investment Firms</p>
+      </div>
+
+      <!-- Card -->
+      <div class="group bg-white p-8 rounded-2xl shadow-lg transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl animate-fadeIn" style="animation-delay: 0.2s;">
+        <div class="flex justify-center items-center w-16 h-16 rounded-full bg-cyan-100 text-cyan-600 text-3xl mb-6 group-hover:scale-110 transition">
+          <i class="fas fa-building"></i>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">Corporations</h4>
+        <p class="text-gray-600 text-sm">Multinationals, SMEs, Family Businesses</p>
+      </div>
+
+      <!-- Card -->
+      <div class="group bg-white p-8 rounded-2xl shadow-lg transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl animate-fadeIn" style="animation-delay: 0.4s;">
+        <div class="flex justify-center items-center w-16 h-16 rounded-full bg-indigo-100 text-indigo-600 text-3xl mb-6 group-hover:scale-110 transition">
+          <i class="fas fa-gavel"></i>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">Government Entities</h4>
+        <p class="text-gray-600 text-sm">Ministries, Agencies, Public Enterprises</p>
+      </div>
+
+      <!-- Card -->
+      <div class="group bg-white p-8 rounded-2xl shadow-lg transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl animate-fadeIn" style="animation-delay: 0.6s;">
+        <div class="flex justify-center items-center w-16 h-16 rounded-full bg-pink-100 text-pink-600 text-3xl mb-6 group-hover:scale-110 transition">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">Nonprofit Organizations</h4>
+        <p class="text-gray-600 text-sm">NGOs, Foundations, Social Enterprises</p>
+      </div>
+
+      <!-- Card -->
+      <div class="group bg-white p-8 rounded-2xl shadow-lg transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl animate-fadeIn" style="animation-delay: 0.8s;">
+        <div class="flex justify-center items-center w-16 h-16 rounded-full bg-yellow-100 text-yellow-600 text-3xl mb-6 group-hover:scale-110 transition">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">Startups & Entrepreneurs</h4>
+        <p class="text-gray-600 text-sm">Early-stage, High-Growth Ventures</p>
+      </div>
+
+      <!-- Card -->
+      <div class="group bg-white p-8 rounded-2xl shadow-lg transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl animate-fadeIn" style="animation-delay: 1s;">
+        <div class="flex justify-center items-center w-16 h-16 rounded-full bg-purple-100 text-purple-600 text-3xl mb-6 group-hover:scale-110 transition">
+          <i class="fas fa-book"></i>
+        </div>
+        <h4 class="text-xl font-semibold text-gray-900 mb-2">Academic & Research Institutions</h4>
+        <p class="text-gray-600 text-sm">Universities, Research Centers, Think Tanks</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
         <!-- Contact Us Section -->
         <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-teal-600 to-cyan-700 text-white relative overflow-hidden">
