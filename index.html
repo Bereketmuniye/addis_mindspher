@@ -412,58 +412,298 @@
 
     <!-- Main Content -->
     <main> 
-        <!-- HERO Section - Inspired by the image's layout and style -->
-        <section id="hero" class="relative h-screen flex items-center overflow-hidden text-white hero-bg-overlay pt-20">
-            <!-- Decorative Patterns -->
-            <div class="absolute w-64 h-64 rounded-full hero-pattern-left hidden md:block animate-pulse-slow"></div>
-            <div class="absolute w-64 h-64 rounded-full hero-pattern-right hidden md:block animate-pulse-slow animation-delay-2000"></div>
-
-            <div class="container mx-auto px-6 z-10 flex flex-col md:flex-row items-center justify-between py-12">
-                <!-- Left Text Content -->
-                <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0 animate-slideInLeft">
-                    <p class="text-teal-200 text-lg uppercase font-semibold mb-3 tracking-wide animate-fadeIn animation-delay-500">
-                        <i class="fas fa-seedling mr-2"></i>Innovate. Grow. Succeed.
-                    </p>
-                    <h1 class="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg animate-fadeIn animation-delay-700">
-                        Empowering Your Vision, <br>Transforming Minds
+          <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800">
+            <div class="absolute inset-0 bg-black opacity-20"></div>
+            <!-- Floating Particles -->
+            <div class="absolute inset-0">
+                <div class="floating-particle absolute top-20 left-10 w-4 h-4 bg-yellow-400 rounded-full opacity-70"></div>
+                <div class="floating-particle absolute top-40 right-20 w-6 h-6 bg-blue-400 rounded-full opacity-50" style="animation-delay: 1s;"></div>
+                <div class="floating-particle absolute bottom-40 left-20 w-3 h-3 bg-pink-400 rounded-full opacity-60" style="animation-delay: 2s;"></div>
+                <div class="floating-particle absolute bottom-20 right-40 w-5 h-5 bg-green-400 rounded-full opacity-40" style="animation-delay: 3s;"></div>
+                <div class="floating-particle absolute top-60 left-1/3 w-2 h-2 bg-purple-400 rounded-full opacity-80" style="animation-delay: 0.5s;"></div>
+                <div class="floating-particle absolute top-80 right-1/3 w-4 h-4 bg-cyan-400 rounded-full opacity-50" style="animation-delay: 1.5s;"></div>
+            </div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center px-4 py-2 bg-white bg-opacity-10 backdrop-blur-sm rounded-full text-sm font-medium text-yellow-300 mb-6 animate-fadeInUp">
+                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                        Leading Consultancy in Africa
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-6 sm:mb-8 animate-fadeInUp leading-tight">
+                        <span class="bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent">
+                            Empowering
+                        </span>
+                        <br>
+                        <span class="text-white">Organizations for</span>
+                        <br>
+                        <span class="bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-pulse-custom">
+                            Transformative Growth
+                        </span>
                     </h1>
-                    <p class="text-lg md:text-xl mb-8 opacity-90 drop-shadow animate-fadeIn animation-delay-900">
-                        Addis Mindsphere is dedicated to delivering cutting-edge Training, insightful Research, and strategic Management Consultancy globally.
+                    
+                    <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 opacity-90 animate-fadeInUp delay-200 leading-relaxed">
+                        Dynamic training, research, and management consultancy services dedicated to achieving 
+                        <span class="text-yellow-300 font-semibold">sustainable success</span> through academic rigor and practical expertise.
                     </p>
-                    <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 animate-fadeIn animation-delay-1100">
-                        <a href="#services"
-                            class="inline-block bg-teal-500 text-white font-bold py-3 px-8 rounded-full shadow-lg
-                                    hover:bg-teal-600 transform hover:scale-105 transition duration-300 ease-in-out">
-                            Explore Services <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                        <a href="#contact"
-                            class="inline-block bg-white text-teal-700 font-bold py-3 px-8 rounded-full shadow-lg
-                                    hover:bg-gray-100 transform hover:scale-105 transition duration-300 ease-in-out">
-                            Get a Free Consultation
-                        </a>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fadeInUp delay-400">
+                        <button class="group relative bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                            <span class="relative z-10">Get Started Today</span>
+                            <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 rounded-xl transition-opacity duration-300"></div>
+                        </button>
+                        <button class="group border-2 border-white text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm bg-white bg-opacity-10">
+                            <span class="flex items-center justify-center">
+                                Watch Demo
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m6-10V7a3 3 0 00-3-3H4a3 3 0 00-3 3v4a3 3 0 003 3h7m2 5.5V17a1.5 1.5 0 00-1.5-1.5H9"></path>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 mt-8 sm:mt-12 animate-fadeInUp delay-600">
+                        <div class="flex items-center">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-green-400 to-blue-500 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full border-2 border-white flex items-center justify-center text-white font-bold text-xs sm:text-sm">
+                                    500+
+                                </div>
+                            </div>
+                            <span class="ml-3 text-white opacity-80 text-sm sm:text-base text-center sm:text-left">Trusted by 500+ organizations</span>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Right Image Section - Modified to fit the branding and ad-like feel -->
-                <div class="md:w-1/2 flex justify-center animate-fadeInUp animation-delay-1300">
-                    <div class="relative w-full max-w-md lg:max-w-lg">
-                        <!-- Image with a subtle border and shadow -->
-                        <img src="Consulting.svg"
-                            alt="Professional consulting and training"
-                            class="rounded-3xl shadow-2xl w-full h-auto object-cover border-4 border-white border-opacity-30
-                                    transform hover:scale-105 transition-transform duration-500 ease-in-out">
+                
+                <div class="animate-slideInRight h-full mt-8 lg:mt-0">
+                    <!-- Stunning 3D-Style Visual -->
+                    <div class="relative h-full min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
                         
-                        <!-- Overlay text/badge for ad feel -->
-                        <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white text-teal-700 px-6 py-3 rounded-full shadow-xl
-                                    text-lg font-bold flex items-center space-x-2 animate-slideInUp animation-delay-1500
-                                    transform hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-award text-amber-500"></i>
-                            <span>Trusted Expertise</span>
+                        <!-- 3D Isometric Business Scene -->
+                        <svg class="w-full h-full relative z-10" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <!-- Gradients for 3D effect -->
+                                <linearGradient id="topFace" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="leftFace" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="rightFace" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+                                </linearGradient>
+                                <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Floating 3D Cubes with Animation -->
+                            <g transform="translate(100,100)">
+                                <!-- Cube 1 -->
+                                <g>
+                                    <animateTransform attributeName="transform" type="translate" values="100,100; 120,80; 100,100" dur="3s" repeatCount="indefinite"/>
+                                    <!-- Top face -->
+                                    <path d="M0,0 L40,0 L60,20 L20,20 Z" fill="url(#topFace)"/>
+                                    <!-- Left face -->
+                                    <path d="M0,0 L20,20 L20,60 L0,40 Z" fill="url(#leftFace)"/>
+                                    <!-- Right face -->
+                                    <path d="M40,0 L60,20 L60,60 L40,40 Z" fill="url(#rightFace)"/>
+                                </g>
+                            </g>
+                            
+                            <!-- Cube 2 -->
+                            <g transform="translate(300,150)">
+                                <animateTransform attributeName="transform" type="translate" values="300,150; 280,130; 300,150" dur="4s" repeatCount="indefinite"/>
+                                <path d="M0,0 L50,0 L70,25 L20,25 Z" fill="url(#goldGradient)"/>
+                                <path d="M0,0 L20,25 L20,75 L0,50 Z" fill="#f59e0b"/>
+                                <path d="M50,0 L70,25 L70,75 L50,50 Z" fill="#d97706"/>
+                            </g>
+                            
+                            <!-- Cube 3 -->
+                            <g transform="translate(500,200)">
+                                <animateTransform attributeName="transform" type="translate" values="500,200; 520,180; 500,200" dur="2.5s" repeatCount="indefinite"/>
+                                <path d="M0,0 L35,0 L50,18 L15,18 Z" fill="url(#purpleGradient)"/>
+                                <path d="M0,0 L15,18 L15,53 L0,35 Z" fill="#7c3aed"/>
+                                <path d="M35,0 L50,18 L50,53 L35,35 Z" fill="#6d28d9"/>
+                            </g>
+                            
+                            <!-- Large Central Platform -->
+                            <g transform="translate(200,300)">
+                                <!-- Platform base -->
+                                <path d="M0,50 L200,50 L250,75 L50,75 Z" fill="url(#topFace)" opacity="0.9"/>
+                                <path d="M0,50 L50,75 L50,125 L0,100 Z" fill="url(#leftFace)" opacity="0.9"/>
+                                <path d="M200,50 L250,75 L250,125 L200,100 Z" fill="url(#rightFace)" opacity="0.9"/>
+                                
+                                <!-- Business figures on platform -->
+                                <!-- Figure 1 -->
+                                <g transform="translate(60,30)">
+                                    <ellipse cx="0" cy="20" rx="8" ry="12" fill="#fbbf24"/>
+                                    <circle cx="0" cy="5" r="6" fill="#f59e0b"/>
+                                    <rect x="-4" y="12" width="8" height="15" fill="#d97706" rx="2"/>
+                                </g>
+                                
+                                <!-- Figure 2 -->
+                                <g transform="translate(100,25)">
+                                    <ellipse cx="0" cy="20" rx="8" ry="12" fill="#a855f7"/>
+                                    <circle cx="0" cy="5" r="6" fill="#9333ea"/>
+                                    <rect x="-4" y="12" width="8" height="15" fill="#7c3aed" rx="2"/>
+                                </g>
+                                
+                                <!-- Figure 3 -->
+                                <g transform="translate(140,30)">
+                                    <ellipse cx="0" cy="20" rx="8" ry="12" fill="#10b981"/>
+                                    <circle cx="0" cy="5" r="6" fill="#059669"/>
+                                    <rect x="-4" y="12" width="8" height="15" fill="#047857" rx="2"/>
+                                </g>
+                            </g>
+                            
+                            <!-- Floating Data Visualization -->
+                            <g transform="translate(450,100)">
+                                <animateTransform attributeName="transform" type="translate" values="450,100; 470,90; 450,100" dur="6s" repeatCount="indefinite"/>
+                                <!-- Holographic screen -->
+                                <rect x="0" y="0" width="200" height="120" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2" rx="10"/>
+                                
+                                <!-- Animated bars -->
+                                <rect x="20" y="80" width="15" height="30" fill="url(#greenGradient)">
+                                    <animate attributeName="height" values="30;50;30" dur="2s" repeatCount="indefinite"/>
+                                    <animate attributeName="y" values="80;60;80" dur="2s" repeatCount="indefinite"/>
+                                </rect>
+                                <rect x="45" y="70" width="15" height="40" fill="url(#goldGradient)">
+                                    <animate attributeName="height" values="40;60;40" dur="2.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="y" values="70;50;70" dur="2.5s" repeatCount="indefinite"/>
+                                </rect>
+                                <rect x="70" y="60" width="15" height="50" fill="url(#purpleGradient)">
+                                    <animate attributeName="height" values="50;70;50" dur="3s" repeatCount="indefinite"/>
+                                    <animate attributeName="y" values="60;40;60" dur="3s" repeatCount="indefinite"/>
+                                </rect>
+                                <rect x="95" y="75" width="15" height="35" fill="#ef4444">
+                                    <animate attributeName="height" values="35;55;35" dur="1.8s" repeatCount="indefinite"/>
+                                    <animate attributeName="y" values="75;55;75" dur="1.8s" repeatCount="indefinite"/>
+                                </rect>
+                                
+                                <!-- Growth line -->
+                                <path d="M 130 100 Q 150 80 170 60" stroke="url(#goldGradient)" stroke-width="3" fill="none" opacity="0.8">
+                                    <animate attributeName="stroke-dasharray" values="0,100;100,0;0,100" dur="3s" repeatCount="indefinite"/>
+                                </path>
+                            </g>
+                            
+                            <!-- Floating Success Icons -->
+                            <g transform="translate(100,250)">
+                                <animateTransform attributeName="transform" type="translate" values="100,250; 110,240; 100,250" dur="4s" repeatCount="indefinite"/>
+                                <circle cx="0" cy="0" r="25" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="2"/>
+                                <path d="M -10 0 L -3 7 L 10 -10" stroke="#10b981" stroke-width="3" fill="none"/>
+                            </g>
+                            
+                            <g transform="translate(600,350)">
+                                <animateTransform attributeName="transform" type="translate" values="600,350; 590,340; 600,350" dur="3.5s" repeatCount="indefinite"/>
+                                <circle cx="0" cy="0" r="20" fill="rgba(251,191,36,0.2)" stroke="#fbbf24" stroke-width="2"/>
+                                <path d="M -8 2 L 0 -8 L 8 2 M 0 -8 L 0 8" stroke="#fbbf24" stroke-width="3" fill="none"/>
+                            </g>
+                            
+                            <!-- Connecting Network Lines -->
+                            <g opacity="0.4">
+                                <path d="M 200 200 Q 300 150 400 200" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-dasharray="5,5">
+                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="2s" repeatCount="indefinite"/>
+                                </path>
+                                <path d="M 400 200 Q 500 250 600 200" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-dasharray="5,5">
+                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="2.5s" repeatCount="indefinite"/>
+                                </path>
+                                <path d="M 300 350 Q 400 300 500 350" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-dasharray="5,5">
+                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="3s" repeatCount="indefinite"/>
+                                </path>
+                            </g>
+                            
+                            <!-- Particle Effects -->
+                            <circle cx="150" cy="100" r="3" fill="#fbbf24" opacity="0.8">
+                                <animateTransform attributeName="transform" type="translate" values="0,0; 20,-30; 40,-60" dur="4s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.8;0;0.8" dur="4s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="650" cy="150" r="2" fill="#a855f7" opacity="0.6">
+                                <animateTransform attributeName="transform" type="translate" values="0,0; -15,25; -30,50" dur="5s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.6;0;0.6" dur="5s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="500" cy="450" r="4" fill="#10b981" opacity="0.7">
+                                <animateTransform attributeName="transform" type="translate" values="0,0; 10,-40; 20,-80" dur="3.5s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.7;0;0.7" dur="3.5s" repeatCount="indefinite"/>
+                            </circle>
+                        </svg>
+                        
+
+                        
+                        <!-- Enhanced Bottom Content -->
+                        <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-8 right-4 sm:right-8">
+                            <div class="bg-gradient-to-r from-purple-900/80 to-blue-900/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-white/20 shadow-2xl">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 sm:mb-4">
+                                    <div class="mb-2 sm:mb-0">
+                                        <h3 class="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-1 sm:mb-2 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                                            Future-Ready Solutions
+                                        </h3>
+                                        <p class="text-blue-200 text-sm sm:text-base lg:text-lg">Transforming businesses with cutting-edge innovation</p>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <div class="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full animate-pulse"></div>
+                                        <div class="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                                        <div class="w-2 h-2 sm:w-3 sm:h-3 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-3 sm:mb-4">
+                                    <div class="text-center">
+                                        <div class="text-lg sm:text-xl lg:text-2xl font-bold text-yellow-400">98%</div>
+                                        <div class="text-xs text-blue-200">Success Rate</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-lg sm:text-xl lg:text-2xl font-bold text-green-400">500+</div>
+                                        <div class="text-xs text-blue-200">Projects</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-lg sm:text-xl lg:text-2xl font-bold text-purple-400">50+</div>
+                                        <div class="text-xs text-blue-200">Countries</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full mr-2 sm:mr-3 animate-pulse flex-shrink-0"></div>
+                                    <span class="text-white text-xs sm:text-sm font-medium success-ticker">
+                                        Latest: Helped Fortune 500 company increase efficiency by 40%
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
 
       <!-- About Us Section -->
         <section id="about" class="py-16 md:py-24 bg-white pattern-bg">
@@ -1042,176 +1282,176 @@
         </section>
 
         <!-- Target Markets Section -->
-<section class="min-h-screen gradient-bg flex items-center justify-center p-6 w-full">
-  <div class="relative w-full max-w-6xl">
-    
-    <!-- Title -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Our Target Markets</h2>
-      <p class="text-white/80 max-w-2xl mx-auto">
-        We serve a diverse ecosystem of organizations – from global corporations to startups, nonprofits, and academia.
-      </p>
-    </div>
+        <section class="min-h-screen gradient-bg flex items-center justify-center p-6 w-full">
+        <div class="relative w-full max-w-6xl">
+            
+            <!-- Title -->
+            <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Our Target Markets</h2>
+            <p class="text-white/80 max-w-2xl mx-auto">
+                We serve a diverse ecosystem of organizations – from global corporations to startups, nonprofits, and academia.
+            </p>
+            </div>
 
-    <!-- Grid Layout (Mobile & Tablet) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:hidden">
-      <!-- Financial Institutions -->
-      <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-        <div class="w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center">
-          <i class="fas fa-money-check-alt text-2xl text-white"></i>
-        </div>
-        <div>
-          <h3 class="font-semibold text-white">Financial Institutions</h3>
-          <p class="text-white/70 text-sm">Banks • Insurance • Investment</p>
-        </div>
-      </div>
+            <!-- Grid Layout (Mobile & Tablet) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:hidden">
+            <!-- Financial Institutions -->
+            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
+                <div class="w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center">
+                <i class="fas fa-money-check-alt text-2xl text-white"></i>
+                </div>
+                <div>
+                <h3 class="font-semibold text-white">Financial Institutions</h3>
+                <p class="text-white/70 text-sm">Banks • Insurance • Investment</p>
+                </div>
+            </div>
 
-      <!-- Corporations -->
-      <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-        <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center">
-          <i class="fas fa-building text-2xl text-white"></i>
-        </div>
-        <div>
-          <h3 class="font-semibold text-white">Corporations</h3>
-          <p class="text-white/70 text-sm">SMEs • Multinationals</p>
-        </div>
-      </div>
+            <!-- Corporations -->
+            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
+                <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center">
+                <i class="fas fa-building text-2xl text-white"></i>
+                </div>
+                <div>
+                <h3 class="font-semibold text-white">Corporations</h3>
+                <p class="text-white/70 text-sm">SMEs • Multinationals</p>
+                </div>
+            </div>
 
-      <!-- Government -->
-      <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-        <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center">
-          <i class="fas fa-gavel text-2xl text-white"></i>
-        </div>
-        <div>
-          <h3 class="font-semibold text-white">Government</h3>
-          <p class="text-white/70 text-sm">Ministries • Agencies</p>
-        </div>
-      </div>
+            <!-- Government -->
+            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
+                <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center">
+                <i class="fas fa-gavel text-2xl text-white"></i>
+                </div>
+                <div>
+                <h3 class="font-semibold text-white">Government</h3>
+                <p class="text-white/70 text-sm">Ministries • Agencies</p>
+                </div>
+            </div>
 
-      <!-- Nonprofits -->
-      <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-        <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center">
-          <i class="fas fa-hands-helping text-2xl text-white"></i>
-        </div>
-        <div>
-          <h3 class="font-semibold text-white">Nonprofits</h3>
-          <p class="text-white/70 text-sm">NGOs • Foundations</p>
-        </div>
-      </div>
+            <!-- Nonprofits -->
+            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
+                <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center">
+                <i class="fas fa-hands-helping text-2xl text-white"></i>
+                </div>
+                <div>
+                <h3 class="font-semibold text-white">Nonprofits</h3>
+                <p class="text-white/70 text-sm">NGOs • Foundations</p>
+                </div>
+            </div>
 
-      <!-- Startups -->
-      <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-        <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
-          <i class="fas fa-rocket text-2xl text-white"></i>
-        </div>
-        <div>
-          <h3 class="font-semibold text-white">Startups</h3>
-          <p class="text-white/70 text-sm">Entrepreneurs • Ventures</p>
-        </div>
-      </div>
+            <!-- Startups -->
+            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
+                <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
+                <i class="fas fa-rocket text-2xl text-white"></i>
+                </div>
+                <div>
+                <h3 class="font-semibold text-white">Startups</h3>
+                <p class="text-white/70 text-sm">Entrepreneurs • Ventures</p>
+                </div>
+            </div>
 
-      <!-- Academic -->
-      <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center">
-          <i class="fas fa-book text-2xl text-white"></i>
-        </div>
-        <div>
-          <h3 class="font-semibold text-white">Academic</h3>
-          <p class="text-white/70 text-sm">Universities • Research</p>
-        </div>
-      </div>
-    </div>
+            <!-- Academic -->
+            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center">
+                <i class="fas fa-book text-2xl text-white"></i>
+                </div>
+                <div>
+                <h3 class="font-semibold text-white">Academic</h3>
+                <p class="text-white/70 text-sm">Universities • Research</p>
+                </div>
+            </div>
+            </div>
 
-    <!-- Circular Layout (Desktop) -->
-    <div class="hidden lg:block relative w-full max-w-4xl aspect-square mx-auto">
-      
-      <!-- Central Hub -->
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-        <div class="w-32 h-32 bg-white rounded-full shadow-2xl flex items-center justify-center pulsing fade-in">
-          <div class="text-center">
-            <i class="fas fa-network-wired text-4xl text-indigo-600 mb-2"></i>
-            <p class="text-sm font-bold text-gray-800">Market<br>Ecosystem</p>
-          </div>
-        </div>
-      </div>
+            <!-- Circular Layout (Desktop) -->
+            <div class="hidden lg:block relative w-full max-w-4xl aspect-square mx-auto">
+            
+            <!-- Central Hub -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                <div class="w-32 h-32 bg-white rounded-full shadow-2xl flex items-center justify-center pulsing fade-in">
+                <div class="text-center">
+                    <i class="fas fa-network-wired text-4xl text-indigo-600 mb-2"></i>
+                    <p class="text-sm font-bold text-gray-800">Market<br>Ecosystem</p>
+                </div>
+                </div>
+            </div>
 
-      <!-- Rotating Circle with Segments -->
-      <div class="absolute inset-0 rotating-circle">
-        
-        <!-- Financial Institutions -->
-        <div class="segment absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fade-in">
-          <div class="w-24 h-24 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full shadow-lg flex items-center justify-center">
-            <i class="fas fa-money-check-alt text-2xl text-white"></i>
-          </div>
-          <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
-            <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Financial Institutions</p>
-            <p class="text-white/80 text-xs">Banks • Insurance • Investment</p>
-          </div>
-        </div>
+            <!-- Rotating Circle with Segments -->
+            <div class="absolute inset-0 rotating-circle">
+                
+                <!-- Financial Institutions -->
+                <div class="segment absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fade-in">
+                <div class="w-24 h-24 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full shadow-lg flex items-center justify-center">
+                    <i class="fas fa-money-check-alt text-2xl text-white"></i>
+                </div>
+                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
+                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Financial Institutions</p>
+                    <p class="text-white/80 text-xs">Banks • Insurance • Investment</p>
+                </div>
+                </div>
 
-        <!-- Corporations -->
-        <div class="segment absolute top-1/4 right-0 transform translate-x-1/2 -translate-y-1/2 fade-in">
-          <div class="w-24 h-24 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full shadow-lg flex items-center justify-center">
-            <i class="fas fa-building text-2xl text-white"></i>
-          </div>
-          <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
-            <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Corporations</p>
-            <p class="text-white/80 text-xs">SMEs • Multinationals</p>
-          </div>
-        </div>
+                <!-- Corporations -->
+                <div class="segment absolute top-1/4 right-0 transform translate-x-1/2 -translate-y-1/2 fade-in">
+                <div class="w-24 h-24 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full shadow-lg flex items-center justify-center">
+                    <i class="fas fa-building text-2xl text-white"></i>
+                </div>
+                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
+                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Corporations</p>
+                    <p class="text-white/80 text-xs">SMEs • Multinationals</p>
+                </div>
+                </div>
 
-        <!-- Government -->
-        <div class="segment absolute bottom-1/4 right-0 transform translate-x-1/2 translate-y-1/2 fade-in">
-          <div class="w-24 h-24 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full shadow-lg flex items-center justify-center">
-            <i class="fas fa-gavel text-2xl text-white"></i>
-          </div>
-          <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
-            <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Government</p>
-            <p class="text-white/80 text-xs">Ministries • Agencies</p>
-          </div>
-        </div>
+                <!-- Government -->
+                <div class="segment absolute bottom-1/4 right-0 transform translate-x-1/2 translate-y-1/2 fade-in">
+                <div class="w-24 h-24 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full shadow-lg flex items-center justify-center">
+                    <i class="fas fa-gavel text-2xl text-white"></i>
+                </div>
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
+                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Government</p>
+                    <p class="text-white/80 text-xs">Ministries • Agencies</p>
+                </div>
+                </div>
 
-        <!-- Nonprofits -->
-        <div class="segment absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 fade-in">
-          <div class="w-24 h-24 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full shadow-lg flex items-center justify-center">
-            <i class="fas fa-hands-helping text-2xl text-white"></i>
-          </div>
-          <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
-            <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Nonprofits</p>
-            <p class="text-white/80 text-xs">NGOs • Foundations</p>
-          </div>
-        </div>
+                <!-- Nonprofits -->
+                <div class="segment absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 fade-in">
+                <div class="w-24 h-24 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full shadow-lg flex items-center justify-center">
+                    <i class="fas fa-hands-helping text-2xl text-white"></i>
+                </div>
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
+                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Nonprofits</p>
+                    <p class="text-white/80 text-xs">NGOs • Foundations</p>
+                </div>
+                </div>
 
-        <!-- Startups -->
-        <div class="segment absolute bottom-1/4 left-0 transform -translate-x-1/2 translate-y-1/2 fade-in">
-          <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full shadow-lg flex items-center justify-center">
-            <i class="fas fa-rocket text-2xl text-white"></i>
-          </div>
-          <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
-            <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Startups</p>
-            <p class="text-white/80 text-xs">Entrepreneurs • Ventures</p>
-          </div>
-        </div>
+                <!-- Startups -->
+                <div class="segment absolute bottom-1/4 left-0 transform -translate-x-1/2 translate-y-1/2 fade-in">
+                <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full shadow-lg flex items-center justify-center">
+                    <i class="fas fa-rocket text-2xl text-white"></i>
+                </div>
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
+                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Startups</p>
+                    <p class="text-white/80 text-xs">Entrepreneurs • Ventures</p>
+                </div>
+                </div>
 
-        <!-- Academic -->
-        <div class="segment absolute top-1/4 left-0 transform -translate-x-1/2 -translate-y-1/2 fade-in">
-          <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full shadow-lg flex items-center justify-center">
-            <i class="fas fa-book text-2xl text-white"></i>
-          </div>
-          <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
-            <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Academic</p>
-            <p class="text-white/80 text-xs">Universities • Research</p>
-          </div>
-        </div>
-      </div>
+                <!-- Academic -->
+                <div class="segment absolute top-1/4 left-0 transform -translate-x-1/2 -translate-y-1/2 fade-in">
+                <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full shadow-lg flex items-center justify-center">
+                    <i class="fas fa-book text-2xl text-white"></i>
+                </div>
+                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
+                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Academic</p>
+                    <p class="text-white/80 text-xs">Universities • Research</p>
+                </div>
+                </div>
+            </div>
 
-      <!-- Connecting Circle -->
-      <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
-        <circle cx="200" cy="200" r="180" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="5,5" class="flow-line"/>
-      </svg>
-    </div>
-  </div>
-</section>
+            <!-- Connecting Circle -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
+                <circle cx="200" cy="200" r="180" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="5,5" class="flow-line"/>
+            </svg>
+            </div>
+        </div>
+        </section>
 
         <!-- Contact Us Section -->
         <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-teal-600 to-cyan-700 text-white relative overflow-hidden">
@@ -1305,6 +1545,147 @@
 <!-- SwiperJS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+ <script>
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const name = formData.get('name') || event.target.querySelector('input[placeholder="Your Name"]').value;
+            const email = formData.get('email') || event.target.querySelector('input[placeholder="Your Email"]').value;
+            const organization = formData.get('organization') || event.target.querySelector('input[placeholder="Organization"]').value;
+            const message = formData.get('message') || event.target.querySelector('textarea').value;
+            
+            // Show success message
+            const button = event.target.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = 'Message Sent! ✓';
+            button.style.backgroundColor = '#10B981';
+            
+            // Reset form
+            event.target.reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = '';
+            }, 3000);
+            
+            console.log('Form submitted:', { name, email, organization, message });
+        }
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // Counter Animation
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            updateCounter();
+        }
+
+        // Success Stories Ticker
+        const successStories = [
+            "Latest: Helped Fortune 500 company increase efficiency by 40%",
+            "Recent: Trained 1000+ employees in digital transformation",
+            "Achievement: 95% client retention rate this quarter",
+            "Success: Reduced operational costs by 30% for major bank",
+            "Impact: Improved customer satisfaction by 50% for retail chain"
+        ];
+
+        let currentStoryIndex = 0;
+        function updateSuccessTicker() {
+            const ticker = document.querySelector('.success-ticker');
+            if (ticker) {
+                ticker.style.opacity = '0';
+                setTimeout(() => {
+                    ticker.textContent = successStories[currentStoryIndex];
+                    ticker.style.opacity = '1';
+                    currentStoryIndex = (currentStoryIndex + 1) % successStories.length;
+                }, 300);
+            }
+        }
+
+        // Start ticker
+        setInterval(updateSuccessTicker, 4000);
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    
+                    // Animate counters when they come into view
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        animateCounter(counter, target);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fadeInUp, .animate-slideInLeft, .animate-slideInRight').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            observer.observe(el);
+        });
+    </script>
+
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982bf62fa2aa8a5f',t:'MTc1ODQ4Mjg2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 <script>
   var swiper = new Swiper(".teamSwiper", {
