@@ -136,6 +136,38 @@
             font-weight: bold;
             color: #F4B400; /* Golden Yellow */
         }
+    /* Hero background */
+    .hero-bg {
+        position: relative;
+        overflow: hidden;
+    }
+    .hero-bg video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+    .hero-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+        z-index: 2;
+    }
+    .hero-bg > * {
+        position: relative;
+        z-index: 3; /* Content above video and overlay */
+    }
+    .hero-bg h1, .hero-bg p, .hero-bg a {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
     </style>
 </head>
 <body class="font-open-sans text-gray-800 bg-gray-50 antialiased flex flex-col min-h-screen">
@@ -202,6 +234,10 @@
     <main class="flex-1">
         <!-- Hero Section -->
         <section id="hero" class="min-h-screen flex items-center hero-bg relative">
+            <video autoplay muted loop playsinline>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div class="container mx-auto px-6 text-center animate-fadeIn">
                 <div class="flex justify-center mb-6">
                 </div>
