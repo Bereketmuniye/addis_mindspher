@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open website.html",
-            "file": "/home/bek/website/website.html"
+            "name": "Open index.html",
+            "file": "/home/bek/website/src/index.html"
         }
     ]
 }

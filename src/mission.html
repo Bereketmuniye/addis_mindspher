@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addis Mindsphere - Mission</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts: Montserrat and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Custom font classes */
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .font-open-sans { font-family: 'Open Sans', sans-serif; }
+        /* Ensure full height for sticky footer */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1 0 auto;
+        }
+        footer {
+            flex-shrink: 0;
+        }
+        /* Active navigation link */
+        .nav-link.active {
+            color: #00A896; /* Vibrant Teal */
+            border-bottom: 2px solid #00A896;
+        }
+        /* Preloader styles */
+        #preloader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #1A3C6E; /* Deep Blue */
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            z-index: 100;
+        }
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .preloader-icon {
+            width: 100px;
+            height: 50px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150"><path fill="none" stroke="%23F4B400" stroke-width="15" stroke-linecap="round" stroke-dasharray="300 385" stroke-dashoffset="0" d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z"><animate attributeName="stroke-dashoffset" calcMode="spline" dur="2" values="685;-685" keySplines="0 0 1 1" repeatCount="indefinite"></animate></path></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        /* Scroll-to-top button */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            background-color: #00A896; /* Vibrant Teal */
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        #scrollToTopBtn:hover {
+            background-color: #008773; /* Darker Teal */
+        }
+        /* Fade-in and fade-in-up animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .animate-fadeInUp {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        /* Card hover effect */
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        /* Mission and Vision section background */
+        .mission-section, .vision-section {
+            background-color: #FFFFFF; /* White */
+        }
+    </style>
+</head>
+<body class="font-open-sans text-gray-800 bg-gray-50 antialiased flex flex-col min-h-screen">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 flex items-center justify-center">
+        <div class="preloader-icon"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 py-4" id="navbar">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2 text-2xl font-bold font-montserrat text-[#1A3C6E] hover:text-[#00A896] transition duration-300">
+                <i class="fas fa-brain"></i>
+                <span>Addis Mindsphere</span>
+            </a>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-[#333333] focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Home
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="mission.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group active">Mission
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="service.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Services
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="team.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Our Team
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="testimonies.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Target Markets
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="philosophy.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Philosophies
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white py-2 shadow-inner">
+            <a href="../index.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Home</a>
+            <a href="mission.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Mission</a>
+            <a href="service.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Services</a>
+            <a href="team.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Our Team</a>
+            <a href="testimonies.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Target Markets</a>
+            <a href="philosophy.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Philosophies</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+        <!-- Mission Section -->
+        <section class="py-16 md:py-24 mission-section">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <!-- Left Image -->
+                    <div class="w-full md:w-1/4 flex justify-center md:justify-start mb-8 md:mb-0 animate-fadeInUp card-hover-effect" style="animation-delay: 0.2s;">
+                        <img src="../assets/download.jpeg" alt="Mission illustration" class="h-80 md:h-[28rem] object-contain">
+                    </div>
+                    <!-- Text -->
+                    <div class="w-full md:w-1/2 text-center md:text-left px-4 animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <h3 class="text-3xl md:text-4xl font-bold font-montserrat text-[#1A3C6E] mb-4">Our Mission</h3>
+                        <p class="text-[#333333] text-lg font-open-sans mb-6">
+                            To empower organizations through innovative training and consultancy, fostering sustainable growth, leadership excellence, and operational efficiency across diverse sectors.
+                        </p>
+                        <a href="service.html" class="inline-block bg-[#F4B400] text-[#1A3C6E] font-bold font-montserrat px-8 py-3 rounded-lg hover:bg-[#D4A017] transition duration-300 card-hover-effect">Learn More</a>
+                    </div>
+                    <!-- Right Image -->
+                    <div class="w-full md:w-1/4 flex justify-center md:justify-end animate-fadeInUp card-hover-effect" style="animation-delay: 0.6s;">
+                        <img src="../assets/mission-2.png" alt="Mission illustration" class="h-72 md:h-96 object-contain">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section class="py-16 md:py-24 vision-section">
+            <div class="container mx-auto px-6 md:px-12 flex flex-col items-center">
+                <div class="md:w-1/2 text-center mb-6 md:mb-0 animate-fadeIn">
+                    <h3 class="text-3xl md:text-4xl font-bold font-montserrat text-[#1A3C6E] mb-6">Our Vision</h3>
+                    <p class="text-[#333333] leading-relaxed text-lg md:text-xl max-w-3xl mx-auto font-open-sans">
+                        To be the leading training and consultancy firm in Africa, driving transformative change by equipping organizations with innovative strategies, skilled leadership, and sustainable solutions.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-[#1A3C6E] text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-lg font-bold font-montserrat text-[#F4B400] mb-4">Addis Mindsphere</h3>
+                    <p class="text-white/90 font-open-sans">Empowering organizations for transformative growth.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold font-montserrat text-[#F4B400] mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#hero" class="text-white/90 hover:text-[#00A896] font-open-sans transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-white/90 hover:text-[#00A896] font-open-sans transition duration-300">About</a></li>
+                        <li><a href="src/service.html" class="text-white/90 hover:text-[#00A896] font-open-sans transition duration-300">Services</a></li>
+                        <li><a href="#contact" class="text-white/90 hover:text-[#00A896] font-open-sans transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold font-montserrat text-[#F4B400] mb-4">Follow Us</h3>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-white/90 hover:text-[#00A896] transition duration-300"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-white/90 hover:text-[#00A896] transition duration-300"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-white/90 hover:text-[#00A896] transition duration-300"><i class="fab fa-linkedin-in text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-white/80 font-open-sans">
+                &copy; <span id="current-year"></span> Addis Mindsphere Training & Consultancy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.classList.add('hidden');
+            setTimeout(() => preloader.style.display = 'none', 500);
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('mobile-menu').classList.add('hidden');
+                const targetId = anchor.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    const offsetTop = target.getBoundingClientRect().top + window.scrollY - document.getElementById('navbar').offsetHeight;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Scroll-to-Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            scrollToTopBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Set Current Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Fade-in and Fade-in-up Animations on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('animate-fadeIn')) {
+                        entry.target.classList.add('animate-fadeIn');
+                    } else if (entry.target.classList.contains('animate-fadeInUp')) {
+                        entry.target.classList.add('animate-fadeInUp');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-fadeIn, .animate-fadeInUp').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

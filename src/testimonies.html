@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addis Mindsphere - Testimonies</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts: Montserrat and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Custom font classes */
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .font-open-sans { font-family: 'Open Sans', sans-serif; }
+        /* Ensure full height for sticky footer */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1 0 auto;
+        }
+        footer {
+            flex-shrink: 0;
+        }
+        /* Active navigation link */
+        .nav-link.active {
+            color: #00A896; /* Vibrant Teal */
+            border-bottom: 2px solid #00A896;
+        }
+        /* Preloader styles */
+        #preloader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #1A3C6E; /* Deep Blue */
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            z-index: 100;
+        }
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .preloader-icon {
+            width: 100px;
+            height: 50px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150"><path fill="none" stroke="%23F4B400" stroke-width="15" stroke-linecap="round" stroke-dasharray="300 385" stroke-dashoffset="0" d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z"><animate attributeName="stroke-dashoffset" calcMode="spline" dur="2" values="685;-685" keySplines="0 0 1 1" repeatCount="indefinite"></animate></path></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        /* Scroll-to-top button */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            background-color: #00A896; /* Vibrant Teal */
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        #scrollToTopBtn:hover {
+            background-color: #008773; /* Darker Teal */
+        }
+        /* Fade-in and fade-in-up animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .animate-fadeInUp {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        /* Card hover effect */
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        /* Scroll-down arrow */
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
+        }
+        /* Icon circle */
+        .icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #F4B400; /* Golden Yellow */
+            border-radius: 50%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .icon-circle:hover {
+            transform: scale(1.1);
+            background-color: #D4A017; /* Darker Yellow */
+        }
+        /* Target Markets background */
+        .target-markets {
+            background-color: #FFFFFF; /* White */
+            position: relative;
+            overflow: hidden;
+        }
+        /* Particle animation canvas */
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        /* Ensure content is above particles */
+        .target-markets > * {
+            position: relative;
+            z-index: 1;
+        }
+        /* Counter styles */
+        .counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #F4B400; /* Golden Yellow */
+        }
+    </style>
+</head>
+<body class="font-open-sans text-gray-800 bg-gray-50 antialiased flex flex-col min-h-screen">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 flex items-center justify-center">
+        <div class="preloader-icon"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 py-4" id="navbar">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2 text-2xl font-bold font-montserrat text-[#1A3C6E] hover:text-[#00A896] transition duration-300">
+                <i class="fas fa-brain"></i>
+                <span>Addis Mindsphere</span>
+            </a>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-[#333333] focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="../index.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Home
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+
+                <a href="mission.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Mission
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="service.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Services
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="team.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Our Team
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="testimonies.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Target Markets
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="philosophy.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Philosophies
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white py-2 shadow-inner">
+            <a href="../index.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Home</a>
+            <a href="mission.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Mission</a>
+            <a href="service.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Services</a>
+            <a href="team.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Our Team</a>
+            <a href="testimonies.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Target Markets</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+        <!-- Impact Highlights & Testimonies Section -->
+        <section class="py-16 md:py-24 bg-[#F5F5F5] relative overflow-hidden">
+            <div class="container mx-auto px-6">
+                <!-- Title -->
+                <div class="text-center mb-12 animate-fadeIn">
+                    <h2 class="text-3xl md:text-4xl font-bold font-montserrat text-[#1A3C6E] mb-4">
+                        Impact Highlights & Testimonies
+                    </h2>
+                    <p class="text-lg text-[#333333] max-w-3xl mx-auto font-open-sans">
+                        Our track record speaks for itself – delivering tangible results and fostering lasting success for our clients.
+                    </p>
+                </div>
+                <!-- Stats Section -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-12">
+                    <div class="animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <span class="counter" data-target="1000">0</span>
+                        <p class="text-sm text-[#333333] font-montserrat">Services Provided</p>
+                    </div>
+                    <div class="animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <span class="counter" data-target="50">0</span>
+                        <p class="text-sm text-[#333333] font-montserrat">Policies Developed</p>
+                    </div>
+                    <div class="animate-fadeInUp" style="animation-delay: 0.6s;">
+                        <span class="counter" data-target="100">0</span>
+                        <p class="text-sm text-[#333333] font-montserrat">Plans Created</p>
+                    </div>
+                    <div class="animate-fadeInUp" style="animation-delay: 0.8s;">
+                        <span class="counter" data-target="200">0</span>
+                        <p class="text-sm text-[#333333] font-montserrat">Projects Designed</p>
+                    </div>
+                </div>
+                <!-- Cards -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Impact Highlight Card -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover-effect animate-fadeInUp" style="animation-delay: 1s;">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop" alt="Services" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold font-montserrat text-[#1A3C6E] mb-2">1000+ Services Provided</h4>
+                            <p class="text-[#333333] font-open-sans">Trainings, Coaching, R&D, and Advisory Services provided individually and in Team Ups.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover-effect animate-fadeInUp" style="animation-delay: 1.2s;">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop" alt="Policy" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold font-montserrat text-[#1A3C6E] mb-2">Policy & Procedure Development</h4>
+                            <p class="text-[#333333] font-open-sans">Multiple Policy, Procedure, Manuals, and Papers produced for diverse entities.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover-effect animate-fadeInUp" style="animation-delay: 1.4s;">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2940&auto=format&fit=crop" alt="Plans" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold font-montserrat text-[#1A3C6E] mb-2">Strategic & Operational Plans</h4>
+                            <p class="text-[#333333] font-open-sans">Numerous Strategic & Operational Plans prepared for various organizations.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover-effect animate-fadeInUp" style="animation-delay: 1.6s;">
+                        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2940&auto=format&fit=crop" alt="Programs" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold font-montserrat text-[#1A3C6E] mb-2">Program & Project Design</h4>
+                            <p class="text-[#333333] font-open-sans">Diverse Programs and Projects designed, implemented, operationalized, and appraised.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover-effect animate-fadeInUp" style="animation-delay: 1.8s;">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2940&auto=format&fit=crop" alt="Assessments" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold font-montserrat text-[#1A3C6E] mb-2">Baseline & Impact Assessments</h4>
+                            <p class="text-[#333333] font-open-sans">Multiple baseline and Impact assessments conducted for effective evaluation.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover-effect animate-fadeInUp" style="animation-delay: 2s;">
+                        <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?q=80&w=2940&auto=format&fit=crop" alt="Change Management" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold font-montserrat text-[#1A3C6E] mb-2">Change Management Execution</h4>
+                            <p class="text-[#333333] font-open-sans">Implemented a number of change management and transformation adaptation works executed.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Learn More Button -->
+                <div class="text-center mt-12 animate-fadeInUp" style="animation-delay: 2.2s;">
+                    <a href="service.html" class="inline-block bg-[#F4B400] text-[#1A3C6E] font-bold font-montserrat px-8 py-3 rounded-lg hover:bg-[#D4A017] transition duration-300 card-hover-effect">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partnerships & Alliances and Quality & Ethics Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Partnerships & Alliances -->
+                    <div class="bg-[#F5F5F5] p-8 rounded-lg shadow-lg card-hover-effect animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <h3 class="text-3xl font-bold font-montserrat text-[#1A3C6E] mb-6 text-center flex items-center justify-center">
+                            <i class="fas fa-handshake mr-4 text-[#00A896]"></i> Partnerships & Alliances
+                        </h3>
+                        <ul class="list-disc list-inside space-y-3 text-lg text-[#333333] font-open-sans">
+                            <li>AMS follows strategic collaborations with international and domestic training & consulting firms and institutions.</li>
+                            <li>Strategic alliances with technology providers for digital transformation projects.</li>
+                            <li>Membership in multiple professional & business networks.</li>
+                        </ul>
+                    </div>
+                    <!-- Commitment to Quality & Ethics -->
+                    <div class="bg-[#F5F5F5] p-8 rounded-lg shadow-lg card-hover-effect animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <h3 class="text-3xl font-bold font-montserrat text-[#1A3C6E] mb-6 text-center flex items-center justify-center">
+                            <i class="fas fa-award mr-4 text-[#00A896]"></i> Commitment to Quality & Ethics
+                        </h3>
+                        <ul class="list-disc list-inside space-y-3 text-lg text-[#333333] font-open-sans">
+                            <li>Adherence to international standards.</li>
+                            <li>Continuous professional development for staff.</li>
+                            <li>Rigorous quality assurance and client feedback mechanisms.</li>
+                            <li>Transparent, ethical, and socially responsible practices.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Markets Section -->
+        <section class="min-h-screen flex items-center justify-center p-6 w-full target-markets relative">
+            <canvas id="particles"></canvas>
+            <div class="relative w-full max-w-6xl">
+                <!-- Title -->
+                <div class="text-center mb-12 animate-fadeIn">
+                    <h2 class="text-3xl md:text-4xl font-bold font-montserrat text-[#1A3C6E] mb-4">Our Target Markets</h2>
+                    <p class="text-[#333333] max-w-2xl mx-auto font-open-sans">
+                        We serve a diverse ecosystem of organizations – from global corporations to startups, nonprofits, and academia.
+                    </p>
+                </div>
+                <!-- Grid Layout (Mobile & Tablet) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:hidden">
+                    <!-- Financial Institutions -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 flex items-center gap-4 card-hover-effect animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="icon-circle">
+                            <i class="fas fa-money-check-alt text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-[#1A3C6E] font-montserrat">Financial Institutions</h3>
+                            <p class="text-[#333333] text-sm font-open-sans">Banks • Insurance • Investment</p>
+                        </div>
+                    </div>
+                    <!-- Corporations -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 flex items-center gap-4 card-hover-effect animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="icon-circle">
+                            <i class="fas fa-building text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-[#1A3C6E] font-montserrat">Corporations</h3>
+                            <p class="text-[#333333] text-sm font-open-sans">SMEs • Multinationals</p>
+                        </div>
+                    </div>
+                    <!-- Government -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 flex items-center gap-4 card-hover-effect animate-fadeInUp" style="animation-delay: 0.6s;">
+                        <div class="icon-circle">
+                            <i class="fas fa-gavel text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-[#1A3C6E] font-montserrat">Government</h3>
+                            <p class="text-[#333333] text-sm font-open-sans">Ministries • Agencies</p>
+                        </div>
+                    </div>
+                    <!-- Nonprofits -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 flex items-center gap-4 card-hover-effect animate-fadeInUp" style="animation-delay: 0.8s;">
+                        <div class="icon-circle">
+                            <i class="fas fa-hands-helping text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-[#1A3C6E] font-montserrat">Nonprofits</h3>
+                            <p class="text-[#333333] text-sm font-open-sans">NGOs • Foundations</p>
+                        </div>
+                    </div>
+                    <!-- Startups -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 flex items-center gap-4 card-hover-effect animate-fadeInUp" style="animation-delay: 1s;">
+                        <div class="icon-circle">
+                            <i class="fas fa-rocket text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-[#1A3C6E] font-montserrat">Startups</h3>
+                            <p class="text-[#333333] text-sm font-open-sans">Entrepreneurs • Ventures</p>
+                        </div>
+                    </div>
+                    <!-- Academic -->
+                    <div class="bg-white rounded-2xl shadow-lg p-6 flex items-center gap-4 card-hover-effect animate-fadeInUp" style="animation-delay: 1.2s;">
+                        <div class="icon-circle">
+                            <i class="fas fa-book text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-[#1A3C6E] font-montserrat">Academic</h3>
+                            <p class="text-[#333333] text-sm font-open-sans">Universities • Research</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Circular Layout (Desktop) -->
+                <div class="hidden lg:block relative w-full max-w-4xl aspect-square mx-auto">
+                    <!-- Central Hub -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="w-32 h-32 bg-white rounded-full shadow-2xl flex items-center justify-center card-hover-effect">
+                            <div class="text-center">
+                                <i class="fas fa-network-wired text-4xl text-[#1A3C6E] mb-2"></i>
+                                <p class="text-sm font-bold text-[#333333] font-montserrat">Market<br>Ecosystem</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Financial Institutions -->
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="icon-circle shadow-lg">
+                            <i class="fas fa-money-check-alt text-2xl text-white"></i>
+                        </div>
+                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
+                            <p class="text-[#1A3C6E] font-bold text-sm font-montserrat whitespace-nowrap">Financial Institutions</p>
+                            <p class="text-[#333333] text-xs font-open-sans">Banks • Insurance • Investment</p>
+                        </div>
+                    </div>
+                    <!-- Corporations -->
+                    <div class="absolute top-1/4 right-0 transform translate-x-1/2 -translate-y-1/2 animate-fadeInUp" style="animation-delay: 0.6s;">
+                        <div class="icon-circle shadow-lg">
+                            <i class="fas fa-building text-2xl text-white"></i>
+                        </div>
+                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
+                            <p class="text-[#1A3C6E] font-bold text-sm font-montserrat whitespace-nowrap">Corporations</p>
+                            <p class="text-[#333333] text-xs font-open-sans">SMEs • Multinationals</p>
+                        </div>
+                    </div>
+                    <!-- Government -->
+                    <div class="absolute bottom-1/4 right-0 transform translate-x-1/2 translate-y-1/2 animate-fadeInUp" style="animation-delay: 0.8s;">
+                        <div class="icon-circle shadow-lg">
+                            <i class="fas fa-gavel text-2xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
+                            <p class="text-[#1A3C6E] font-bold text-sm font-montserrat whitespace-nowrap">Government</p>
+                            <p class="text-[#333333] text-xs font-open-sans">Ministries • Agencies</p>
+                        </div>
+                    </div>
+                    <!-- Nonprofits -->
+                    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 animate-fadeInUp" style="animation-delay: 1s;">
+                        <div class="icon-circle shadow-lg">
+                            <i class="fas fa-hands-helping text-2xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
+                            <p class="text-[#1A3C6E] font-bold text-sm font-montserrat whitespace-nowrap">Nonprofits</p>
+                            <p class="text-[#333333] text-xs font-open-sans">NGOs • Foundations</p>
+                        </div>
+                    </div>
+                    <!-- Startups -->
+                    <div class="absolute bottom-1/4 left-0 transform -translate-x-1/2 translate-y-1/2 animate-fadeInUp" style="animation-delay: 1.2s;">
+                        <div class="icon-circle shadow-lg">
+                            <i class="fas fa-rocket text-2xl text-white"></i>
+                        </div>
+                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
+                            <p class="text-[#1A3C6E] font-bold text-sm font-montserrat whitespace-nowrap">Startups</p>
+                            <p class="text-[#333333] text-xs font-open-sans">Entrepreneurs • Ventures</p>
+                        </div>
+                    </div>
+                    <!-- Academic -->
+                    <div class="absolute top-1/4 left-0 transform -translate-x-1/2 -translate-y-1/2 animate-fadeInUp" style="animation-delay: 1.4s;">
+                        <div class="icon-circle shadow-lg">
+                            <i class="fas fa-book text-2xl text-white"></i>
+                        </div>
+                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
+                            <p class="text-[#1A3C6E] font-bold text-sm font-montserrat whitespace-nowrap">Academic</p>
+                            <p class="text-[#333333] text-xs font-open-sans">Universities • Research</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Scroll-Down Arrow -->
+                <a href="#footer" class="scroll-down text-[#00A896] text-3xl animate-bounce">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-[#1A3C6E] text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-lg font-bold font-montserrat text-[#F4B400] mb-4">Addis Mindsphere</h3>
+                    <p class="text-white/90 font-open-sans">Empowering organizations for transformative growth.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold font-montserrat text-[#F4B400] mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#hero" class="text-white/90 hover:text-[#00A896] font-open-sans transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-white/90 hover:text-[#00A896] font-open-sans transition duration-300">About</a></li>
+                        <li><a href="src/service.html" class="text-white/90 hover:text-[#00A896] font-open-sans transition duration-300">Services</a></li>
+                        <li><a href="#contact" class="text-white/90 hover:text-[#00A896] font-open-sans transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold font-montserrat text-[#F4B400] mb-4">Follow Us</h3>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-white/90 hover:text-[#00A896] transition duration-300"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-white/90 hover:text-[#00A896] transition duration-300"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-white/90 hover:text-[#00A896] transition duration-300"><i class="fab fa-linkedin-in text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-white/80 font-open-sans">
+                &copy; <span id="current-year"></span> Addis Mindsphere Training & Consultancy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.classList.add('hidden');
+            setTimeout(() => preloader.style.display = 'none', 500);
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('mobile-menu').classList.add('hidden');
+                const targetId = anchor.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    const offsetTop = target.getBoundingClientRect().top + window.scrollY - document.getElementById('navbar').offsetHeight;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Scroll-to-Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            scrollToTopBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Set Current Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Fade-in and Fade-in-up Animations on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('animate-fadeIn')) {
+                        entry.target.classList.add('animate-fadeIn');
+                    } else if (entry.target.classList.contains('animate-fadeInUp')) {
+                        entry.target.classList.add('animate-fadeInUp');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-fadeIn, .animate-fadeInUp').forEach(el => observer.observe(el));
+
+        // Number Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const animateCounter = (counter) => {
+            const target = +counter.getAttribute('data-target');
+            const increment = target / 100;
+            let count = 0;
+            const updateCounter = () => {
+                if (count < target) {
+                    count += increment;
+                    counter.textContent = Math.ceil(count);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target + '+';
+                }
+            };
+            updateCounter();
+        };
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    counters.forEach(animateCounter);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        counterObserver.observe(document.querySelector('.grid.grid-cols-2.md\\:grid-cols-4'));
+
+        // Particle Animation for Target Markets
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = document.querySelector('.target-markets').offsetHeight;
+        const particlesArray = [];
+        const colors = ['#1A3C6E', '#00A896', '#F4B400']; // Homepage palette
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 5 + 2;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.05;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        function initParticles() {
+            for (let i = 0; i < 50; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                if (particlesArray[i].size <= 0.2) {
+                    particlesArray.splice(i, 1);
+                    i--;
+                    particlesArray.push(new Particle());
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        initParticles();
+        animateParticles();
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = document.querySelector('.target-markets').offsetHeight;
+        });
+    </script>
+</body>
+</html>

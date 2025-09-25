@@ -4,1824 +4,523 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Addis Mindsphere - Training & Consultancy</title>
-    <!-- Tailwind CSS CDN (for quick setup) -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- You might want to include an icon library like Font Awesome for better UI -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- Custom CSS (for animations or specific overrides if needed) -->
+    <!-- Google Fonts: Montserrat and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Add custom animations here or use a library like AOS */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Custom font classes */
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .font-open-sans { font-family: 'Open Sans', sans-serif; }
+        /* Ensure full height for sticky footer */
+        html, body {
+            height: 100%;
+            margin: 0;
         }
-        .animate-fadeIn {
-            animation: fadeIn 0.8s ease-out forwards;
+        body {
+            display: flex;
+            flex-direction: column;
         }
-
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
+        main {
+            flex: 1 0 auto;
         }
-        .animate-slideInLeft {
-            animation: slideInLeft 0.8s ease-out forwards;
+        footer {
+            flex-shrink: 0;
         }
-
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        .animate-slideInRight {
-            animation: slideInRight 0.8s ease-out forwards;
-        }
-
-        /* Example for active navigation link */
+        /* Active navigation link */
         .nav-link.active {
-            color: #10B981; /* Tailwind green-500 */
-            border-bottom: 2px solid #10B981;
+            color: #00A896; /* Vibrant Teal */
+            border-bottom: 2px solid #00A896;
         }
-
-        /* Custom scroll-to-top button */
-        #scrollToTopBtn {
-            display: none; /* Hidden by default */
-            position: fixed; /* Fixed/sticky position */
-            bottom: 20px; /* Place the button at the bottom of the page */
-            right: 30px; /* Place the button at the right */
-            z-index: 99; /* Make sure it does not overlap */
-            border: none; /* Remove borders */
-            outline: none; /* Remove outline */
-            background-color: #10B981; /* Set a background color */
-            color: white; /* Text color */
-            cursor: pointer; /* Add a mouse pointer on hover */
-            padding: 15px; /* Some padding */
-            border-radius: 10px; /* Rounded corners */
-            font-size: 18px; /* Increase font size */
-            transition: background-color 0.3s ease;
-        }
-
-        #scrollToTopBtn:hover {
-            background-color: #059669; /* Darker green on hover */
-        }
-
-        /* Additional custom styles for specific components or effects */
-        .card-hover-effect {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover-effect:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Background pattern */
-        .pattern-bg {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zm0-30V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        /* Preloader Styles */
+        /* Preloader styles */
         #preloader {
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            background-color: #1A3C6E; /* Deep Blue */
             transition: opacity 0.5s ease, visibility 0.5s ease;
+            z-index: 100;
         }
-
         #preloader.hidden {
             opacity: 0;
             visibility: hidden;
         }
-
         .preloader-icon {
             width: 100px;
             height: 50px;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150"><path fill="none" stroke="%23FF156D" stroke-width="15" stroke-linecap="round" stroke-dasharray="300 385" stroke-dashoffset="0" d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z"><animate attributeName="stroke-dashoffset" calcMode="spline" dur="2" values="685;-685" keySplines="0 0 1 1" repeatCount="indefinite"></animate></path></svg>');
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150"><path fill="none" stroke="%23F4B400" stroke-width="15" stroke-linecap="round" stroke-dasharray="300 385" stroke-dashoffset="0" d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z"><animate attributeName="stroke-dashoffset" calcMode="spline" dur="2" values="685;-685" keySplines="0 0 1 1" repeatCount="indefinite"></animate></path></svg>');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
         }
-    /* Custom Animations for Advertisement Feel */
+        /* Scroll-to-top button */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            background-color: #00A896; /* Vibrant Teal */
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        #scrollToTopBtn:hover {
+            background-color: #008773; /* Darker Teal */
+        }
+        /* Fade-in and fade-in-up animations */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
-        .animate-slideInUp { animation: slideInUp 0.8s ease-out forwards; }
-        .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
-
-        /* Custom hover effect for advertisement-like interaction */
-        .group:hover .group-hover\:translate-y-0 {
-            transform: translateY(0) !important;
-        }
-        .group:hover .group-hover\:opacity-100 {
-            opacity: 1 !important;
-        }
-         @keyframes heroIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideInLeft {
-        from { opacity: 0; transform: translateX(-30px); }
-        to { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes pulseSlow {
-        0% { transform: scale(1); opacity: 0.2; }
-        50% { transform: scale(1.05); opacity: 0.3; }
-        100% { transform: scale(1); opacity: 0.2; }
-    }
-
-    .animate-heroIn { animation: heroIn 1s ease-out forwards; }
-    .animate-slideInLeft { animation: slideInLeft 0.8s ease-out forwards; }
-    .animate-pulse-slow { animation: pulseSlow 6s infinite ease-in-out; }
-
-    /* New styles for the image-inspired hero section */
-    .hero-bg-overlay {
-        background: linear-gradient(to right, rgba(22, 163, 74, 0.9), rgba(6, 182, 212, 0.7)), url('https://source.unsplash.com/random/1600x900/?consulting,training,business,team') center/cover no-repeat;
-    }
-
-    /* Styles for the decorative leaves/patterns */
-    .hero-pattern-left {
-        background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0ZM50 10C72.0914 10 90 27.9086 90 50C90 72.0914 72.0914 90 50 90C27.9086 90 10 72.0914 10 50C10 27.9086 27.9086 10 50 10Z" fill="%23ECFDF5" fill-opacity="0.1"/><path d="M50 20C33.4315 20 20 33.4315 20 50C20 66.5685 33.4315 80 50 80C66.5685 80 80 66.5685 80 50C80 33.4315 66.5685 20 50 20Z" fill="%23ECFDF5" fill-opacity="0.05"/></svg>');
-        background-size: 150px 150px;
-        top: 20%;
-        left: -5%;
-        opacity: 0.3;
-        transform: rotate(30deg);
-    }
-
-    .hero-pattern-right {
-        background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 0C22.3858 0 0 22.3858 0 50C0 77.6142 22.3858 100 50 100C77.6142 100 100 77.6142 100 50C100 22.3858 77.6142 0 50 0ZM50 10C72.0914 10 90 27.9086 90 50C90 72.0914 72.0914 90 50 90C27.9086 90 10 72.0914 10 50C10 27.9086 27.9086 10 50 10Z" fill="%23ECFDF5" fill-opacity="0.1"/><path d="M50 20C33.4315 20 20 33.4315 20 50C20 66.5685 33.4315 80 50 80C66.5685 80 80 66.5685 80 50C80 33.4315 66.5685 20 50 20Z" fill="%23ECFDF5" fill-opacity="0.05"/></svg>');
-        background-size: 150px 150px;
-        bottom: 10%;
-        right: -5%;
-        opacity: 0.3;
-        transform: rotate(-45deg);
-    }
-
-    /* Hidden before scroll */
-    .fade-element {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 1s ease-out;
-        }
-
-        /* When visible */
-        .fade-element.show {
-        opacity: 1;
-        transform: translateY(0);
-        }
-
-        /* Optional: left and right slide */
-        .slide-left {
-        transform: translateX(-100px);
-        }
-        .slide-right {
-        transform: translateX(100px);
-        }
-        .slide-left.show,
-        .slide-right.show {
-        transform: translateX(0);
-        }
-
-    /* WordPress-style card */
-        .wp-card {
-        background: #fff;
-        padding: 2rem;
-        border-radius: 1rem;
-        text-align: center;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-        transition: all 0.3s ease;
-        border: 1px solid #f1f1f1;
-        }
-        .wp-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-        border-color: #06b6d4;
-        }
-
-        /* Icon styling */
-        .wp-icon {
-        width: 70px;
-        height: 70px;
-        margin: 0 auto 1rem;
-        background: #06b6d4;
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
-        transition: background 0.3s ease;
-        }
-        .wp-card:hover .wp-icon {
-        background: #0891b2;
-        }
-
-        .wp-card h4 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #111827;
-        margin-bottom: 0.5rem;
-        }
-
-        .wp-card p {
-        color: #4b5563;
-        font-size: 1rem;
-        line-height: 1.6;
-        }
-
-        @keyframes fade-in-up {
-        0% {
+        .animate-fadeIn {
             opacity: 0;
-            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
         }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
+        .animate-fadeInUp {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
         }
-    }
-
-        .animate-fade-in-up {
-            animation: fade-in-up 0.6s ease-out forwards;
+        /* Card hover effect */
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .animation-delay-200 {
-            animation-delay: 0.2s;
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
-
-        .animation-delay-400 {
-            animation-delay: 0.4s;
+        /* Scroll-down arrow */
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
         }
-
-        @keyframes slowMove {
-        0%   { transform: translateY(0) rotate(0deg); }
-        25%  { transform: translateY(-8px) rotate(-1deg); }
-        50%  { transform: translateY(0) rotate(0deg); }
-        75%  { transform: translateY(8px) rotate(1deg); }
-        100% { transform: translateY(0) rotate(0deg); }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
         }
-
-        .slow-move {
-        animation: slowMove 6s ease-in-out infinite;
+        /* Icon circle */
+        .icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #F4B400; /* Golden Yellow */
+            border-radius: 50%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .icon-circle:hover {
+            transform: scale(1.1);
+            background-color: #D4A017; /* Darker Yellow */
         }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
+        /* Hero background */
+        .hero-bg {
+            background: linear-gradient(to right, rgba(26, 60, 110, 0.8), rgba(0, 168, 150, 0.7)), url('https://images.unsplash.com/photo-1516321310762-479437144403?q=80&w=2940&auto=format&fit=crop') center/cover no-repeat;
         }
-        
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        @keyframes flowPath {
-            0% { stroke-dashoffset: 1000; }
-            100% { stroke-dashoffset: 0; }
-        }
-        
-        .rotating-circle {
-            animation: rotate 30s linear infinite;
-        }
-        
-        .pulsing {
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        .fade-in {
-            animation: fadeInScale 1s ease-out forwards;
-        }
-        
-        .flow-line {
-            stroke-dasharray: 10 5;
-            animation: flowPath 3s ease-in-out infinite;
-        }
-        
-        .gradient-bg {
-            background: radial-gradient(circle at center, #24b92b 0%, #7c3aed 50%, #76b10a 100%);
-        }
-        
-        .segment {
-            transition: all 0.3s ease;
-        }
-        
-        .segment:hover {
-            transform: scale(1.2);
-            z-index: 10;
-        }
-        
-        .segment:hover .segment-text {
+        /* Counter styles */
+        .counter {
+            font-size: 2.5rem;
             font-weight: bold;
-            color: #ffffff;
+            color: #F4B400; /* Golden Yellow */
         }
-                
-
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-gray-50 antialiased">
+<body class="font-open-sans text-gray-800 bg-gray-50 antialiased flex flex-col min-h-screen">
     <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 bg-gray-900 bg-opacity-80 flex items-center justify-center z-[100]">
+    <div id="preloader" class="fixed inset-0 flex items-center justify-center">
         <div class="preloader-icon"></div>
     </div>
-    
+
     <!-- Navbar -->
     <nav class="bg-white shadow-lg fixed w-full z-50 py-4" id="navbar">
         <div class="container mx-auto px-6 flex items-center justify-between">
             <!-- Logo -->
-            <a href="#" class="flex items-center space-x-2 text-2xl font-bold text-teal-600 hover:text-teal-800 transition duration-300">
+            <a href="#" class="flex items-center space-x-2 text-2xl font-bold font-montserrat text-[#1A3C6E] hover:text-[#00A896] transition duration-300">
                 <i class="fas fa-brain"></i>
                 <span>Addis Mindsphere</span>
             </a>
-
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none focus:text-gray-800">
+                <button id="mobile-menu-button" class="text-[#333333] focus:outline-none">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
                     </svg>
                 </button>
             </div>
-
             <!-- Desktop Navigation -->
             <div class="hidden md:flex space-x-8">
-                <a href="#hero" class="nav-link text-gray-600 hover:text-teal-600 transition duration-300 py-2 relative group">Home
-                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-600 group-hover:w-full transition-all duration-300"></span>
+                <a href="#hero" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Home
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#about" class="nav-link text-gray-600 hover:text-teal-600 transition duration-300 py-2 relative group">About Us
-                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-600 group-hover:w-full transition-all duration-300"></span>
+                <a href="#about" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">About Us
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#services" class="nav-link text-gray-600 hover:text-teal-600 transition duration-300 py-2 relative group">Services
-                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-600 group-hover:w-full transition-all duration-300"></span>
+                <a href="src/mission.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Mission
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#team" class="nav-link text-gray-600 hover:text-teal-600 transition duration-300 py-2 relative group">Our Team
-                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-600 group-hover:w-full transition-all duration-300"></span>
+                <a href="src/service.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Services
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
                 </a>
-                <a href="#contact" class="nav-link text-gray-600 hover:text-teal-600 transition duration-300 py-2 relative group">Contact
-                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-teal-600 group-hover:w-full transition-all duration-300"></span>
+                <a href="src/team.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Our Team
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
                 </a>
+                <a href="src/testimonies.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Target Markets
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+                <a href="src/philosophy.html" class="nav-link text-[#333333] hover:text-[#00A896] font-montserrat transition duration-300 py-2 relative group">Philosophies
+                    <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#00A896] group-hover:w-full transition-all duration-300"></span>
+                </a>
+ 
             </div>
         </div>
-
-        <!-- Mobile Menu (hidden by default) -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white py-2 shadow-inner">
-            <a href="#hero" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition duration-300">Home</a>
-            <a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition duration-300">About Us</a>
-            <a href="#services" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition duration-300">Services</a>
-            <a href="#team" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition duration-300">Our Team</a>
-            <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition duration-300">Contact</a>
+            <a href="#hero" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Home</a>
+            <a href="#about" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">About Us</a>
+            <a href="src/mission.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Mission</a>
+            <a href="src/service.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Services</a>
+            <a href="src/team.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Our Team</a>
+            <a href="src/testimonies.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Target Markets</a>
+            <a href="src/philosophy.html" class="block px-4 py-2 text-[#333333] hover:bg-[#F5F5F5] hover:text-[#00A896] font-montserrat transition duration-300">Philosophies</a>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main> 
-          <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
-        <!-- Animated Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800">
-            <div class="absolute inset-0 bg-black opacity-20"></div>
-            <!-- Floating Particles -->
-            <div class="absolute inset-0">
-                <div class="floating-particle absolute top-20 left-10 w-4 h-4 bg-yellow-400 rounded-full opacity-70"></div>
-                <div class="floating-particle absolute top-40 right-20 w-6 h-6 bg-blue-400 rounded-full opacity-50" style="animation-delay: 1s;"></div>
-                <div class="floating-particle absolute bottom-40 left-20 w-3 h-3 bg-pink-400 rounded-full opacity-60" style="animation-delay: 2s;"></div>
-                <div class="floating-particle absolute bottom-20 right-40 w-5 h-5 bg-green-400 rounded-full opacity-40" style="animation-delay: 3s;"></div>
-                <div class="floating-particle absolute top-60 left-1/3 w-2 h-2 bg-purple-400 rounded-full opacity-80" style="animation-delay: 0.5s;"></div>
-                <div class="floating-particle absolute top-80 right-1/3 w-4 h-4 bg-cyan-400 rounded-full opacity-50" style="animation-delay: 1.5s;"></div>
+    <main class="flex-1">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center hero-bg relative">
+            <div class="container mx-auto px-6 text-center animate-fadeIn">
+                <div class="flex justify-center mb-6">
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-montserrat text-white mb-4">
+                    Empowering Organizations for Transformative Growth
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8">
+                    Dynamic training, research, and consultancy services for sustainable success.
+                </p>
+                <a href="#about" class="inline-block bg-[#F4B400] text-[#1A3C6E] font-bold font-montserrat px-8 py-3 rounded-lg hover:bg-[#D4A017] transition duration-300 card-hover-effect">
+                    Learn More
+                </a>
             </div>
-        </div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="text-white">
-                    <!-- Badge -->
-                    <div class="inline-flex items-center px-4 py-2 bg-white bg-opacity-10 backdrop-blur-sm rounded-full text-sm font-medium text-yellow-300 mb-6 animate-fadeInUp">
-                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                        Leading Consultancy in Africa
+            <!-- Scroll-Down Arrow -->
+            <a href="#about" class="scroll-down text-[#00A896] text-3xl animate-bounce">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 bg-[#F5F5F5]">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold font-montserrat text-[#1A3C6E] text-center mb-12 animate-fadeIn">
+                    About Us
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 items-stretch min-h-[400px]">
+                    <div class="animate-fadeIn" style="animation-delay: 0.2s;">
+                        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=2940&auto=format&fit=crop" alt="About Us" class="rounded-lg shadow-lg w-full h-full object-cover card-hover-effect">
                     </div>
-                    
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-6 sm:mb-8 animate-fadeInUp leading-tight">
-                        <span class="bg-gradient-to-r from-white via-yellow-200 to-yellow-400 bg-clip-text text-transparent">
-                            Empowering
-                        </span>
-                        <br>
-                        <span class="text-white">Organizations for</span>
-                        <br>
-                        <span class="bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-pulse-custom">
-                            Transformative Growth
-                        </span>
-                    </h1>
-                    
-                    <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 opacity-90 animate-fadeInUp delay-200 leading-relaxed">
-                        Dynamic training, research, and management consultancy services dedicated to achieving 
-                        <span class="text-yellow-300 font-semibold">sustainable success</span> through academic rigor and practical expertise.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fadeInUp delay-400">
-                        <button class="group relative bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-                            <span class="relative z-10">Get Started Today</span>
-                            <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 rounded-xl transition-opacity duration-300"></div>
-                        </button>
-                        <button class="group border-2 border-white text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm bg-white bg-opacity-10">
-                            <span class="flex items-center justify-center">
-                                Watch Demo
-                                <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m6-10V7a3 3 0 00-3-3H4a3 3 0 00-3 3v4a3 3 0 003 3h7m2 5.5V17a1.5 1.5 0 00-1.5-1.5H9"></path>
-                                </svg>
-                            </span>
-                        </button>
-                    </div>
-                    
-                    <!-- Trust Indicators -->
-                    <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 mt-8 sm:mt-12 animate-fadeInUp delay-600">
-                        <div class="flex items-center">
-                            <div class="flex -space-x-2">
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full border-2 border-white"></div>
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-green-400 to-blue-500 rounded-full border-2 border-white"></div>
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full border-2 border-white"></div>
-                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full border-2 border-white flex items-center justify-center text-white font-bold text-xs sm:text-sm">
-                                    500+
+                    <div class="bg-white p-8 rounded-lg shadow-lg card-hover-effect flex flex-col justify-between animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <div>
+                            <p class="text-xl text-[#333333] mb-8 font-open-sans leading-relaxed">
+                                Addis Mindsphere is dedicated to empowering organizations through innovative training, research, and consultancy services, driving sustainable success.
+                            </p>
+                            <div class="grid grid-cols-2 gap-6 mb-8">
+                                <div class="flex items-center space-x-4 animate-fadeInUp" style="animation-delay: 0.6s;">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-lightbulb text-2xl text-white"></i>
+                                    </div>
+                                    <span class="font-bold text-lg text-[#1A3C6E] font-montserrat">Innovation</span>
+                                </div>
+                                <div class="flex items-center space-x-4 animate-fadeInUp" style="animation-delay: 0.8s;">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-flask text-2xl text-white"></i>
+                                    </div>
+                                    <span class="font-bold text-lg text-[#1A3C6E] font-montserrat">Research</span>
+                                </div>
+                                <div class="flex items-center space-x-4 animate-fadeInUp" style="animation-delay: 1s;">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                                    </div>
+                                    <span class="font-bold text-lg text-[#1A3C6E] font-montserrat">Training</span>
+                                </div>
+                                <div class="flex items-center space-x-4 animate-fadeInUp" style="animation-delay: 1.2s;">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-building text-2xl text-white"></i>
+                                    </div>
+                                    <span class="font-bold text-lg text-[#1A3C6E] font-montserrat">Consultancy</span>
                                 </div>
                             </div>
-                            <span class="ml-3 text-white opacity-80 text-sm sm:text-base text-center sm:text-left">Trusted by 500+ organizations</span>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="animate-slideInRight h-full mt-8 lg:mt-0">
-                    <!-- Stunning 3D-Style Visual -->
-                    <div class="relative h-full min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
+                        <!-- Stats Section -->
                         
-                        <!-- 3D Isometric Business Scene -->
-                        <svg class="w-full h-full relative z-10" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <!-- Gradients for 3D effect -->
-                                <linearGradient id="topFace" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-                                </linearGradient>
-                                <linearGradient id="leftFace" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
-                                </linearGradient>
-                                <linearGradient id="rightFace" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#1d4ed8;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
-                                </linearGradient>
-                                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
-                                </linearGradient>
-                                <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
-                                </linearGradient>
-                                <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                            
-                            <!-- Floating 3D Cubes with Animation -->
-                            <g transform="translate(100,100)">
-                                <!-- Cube 1 -->
-                                <g>
-                                    <animateTransform attributeName="transform" type="translate" values="100,100; 120,80; 100,100" dur="3s" repeatCount="indefinite"/>
-                                    <!-- Top face -->
-                                    <path d="M0,0 L40,0 L60,20 L20,20 Z" fill="url(#topFace)"/>
-                                    <!-- Left face -->
-                                    <path d="M0,0 L20,20 L20,60 L0,40 Z" fill="url(#leftFace)"/>
-                                    <!-- Right face -->
-                                    <path d="M40,0 L60,20 L60,60 L40,40 Z" fill="url(#rightFace)"/>
-                                </g>
-                            </g>
-                            
-                            <!-- Cube 2 -->
-                            <g transform="translate(300,150)">
-                                <animateTransform attributeName="transform" type="translate" values="300,150; 280,130; 300,150" dur="4s" repeatCount="indefinite"/>
-                                <path d="M0,0 L50,0 L70,25 L20,25 Z" fill="url(#goldGradient)"/>
-                                <path d="M0,0 L20,25 L20,75 L0,50 Z" fill="#f59e0b"/>
-                                <path d="M50,0 L70,25 L70,75 L50,50 Z" fill="#d97706"/>
-                            </g>
-                            
-                            <!-- Cube 3 -->
-                            <g transform="translate(500,200)">
-                                <animateTransform attributeName="transform" type="translate" values="500,200; 520,180; 500,200" dur="2.5s" repeatCount="indefinite"/>
-                                <path d="M0,0 L35,0 L50,18 L15,18 Z" fill="url(#purpleGradient)"/>
-                                <path d="M0,0 L15,18 L15,53 L0,35 Z" fill="#7c3aed"/>
-                                <path d="M35,0 L50,18 L50,53 L35,35 Z" fill="#6d28d9"/>
-                            </g>
-                            
-                            <!-- Large Central Platform -->
-                            <g transform="translate(200,300)">
-                                <!-- Platform base -->
-                                <path d="M0,50 L200,50 L250,75 L50,75 Z" fill="url(#topFace)" opacity="0.9"/>
-                                <path d="M0,50 L50,75 L50,125 L0,100 Z" fill="url(#leftFace)" opacity="0.9"/>
-                                <path d="M200,50 L250,75 L250,125 L200,100 Z" fill="url(#rightFace)" opacity="0.9"/>
-                                
-                                <!-- Business figures on platform -->
-                                <!-- Figure 1 -->
-                                <g transform="translate(60,30)">
-                                    <ellipse cx="0" cy="20" rx="8" ry="12" fill="#fbbf24"/>
-                                    <circle cx="0" cy="5" r="6" fill="#f59e0b"/>
-                                    <rect x="-4" y="12" width="8" height="15" fill="#d97706" rx="2"/>
-                                </g>
-                                
-                                <!-- Figure 2 -->
-                                <g transform="translate(100,25)">
-                                    <ellipse cx="0" cy="20" rx="8" ry="12" fill="#a855f7"/>
-                                    <circle cx="0" cy="5" r="6" fill="#9333ea"/>
-                                    <rect x="-4" y="12" width="8" height="15" fill="#7c3aed" rx="2"/>
-                                </g>
-                                
-                                <!-- Figure 3 -->
-                                <g transform="translate(140,30)">
-                                    <ellipse cx="0" cy="20" rx="8" ry="12" fill="#10b981"/>
-                                    <circle cx="0" cy="5" r="6" fill="#059669"/>
-                                    <rect x="-4" y="12" width="8" height="15" fill="#047857" rx="2"/>
-                                </g>
-                            </g>
-                            
-                            <!-- Floating Data Visualization -->
-                            <g transform="translate(450,100)">
-                                <animateTransform attributeName="transform" type="translate" values="450,100; 470,90; 450,100" dur="6s" repeatCount="indefinite"/>
-                                <!-- Holographic screen -->
-                                <rect x="0" y="0" width="200" height="120" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2" rx="10"/>
-                                
-                                <!-- Animated bars -->
-                                <rect x="20" y="80" width="15" height="30" fill="url(#greenGradient)">
-                                    <animate attributeName="height" values="30;50;30" dur="2s" repeatCount="indefinite"/>
-                                    <animate attributeName="y" values="80;60;80" dur="2s" repeatCount="indefinite"/>
-                                </rect>
-                                <rect x="45" y="70" width="15" height="40" fill="url(#goldGradient)">
-                                    <animate attributeName="height" values="40;60;40" dur="2.5s" repeatCount="indefinite"/>
-                                    <animate attributeName="y" values="70;50;70" dur="2.5s" repeatCount="indefinite"/>
-                                </rect>
-                                <rect x="70" y="60" width="15" height="50" fill="url(#purpleGradient)">
-                                    <animate attributeName="height" values="50;70;50" dur="3s" repeatCount="indefinite"/>
-                                    <animate attributeName="y" values="60;40;60" dur="3s" repeatCount="indefinite"/>
-                                </rect>
-                                <rect x="95" y="75" width="15" height="35" fill="#ef4444">
-                                    <animate attributeName="height" values="35;55;35" dur="1.8s" repeatCount="indefinite"/>
-                                    <animate attributeName="y" values="75;55;75" dur="1.8s" repeatCount="indefinite"/>
-                                </rect>
-                                
-                                <!-- Growth line -->
-                                <path d="M 130 100 Q 150 80 170 60" stroke="url(#goldGradient)" stroke-width="3" fill="none" opacity="0.8">
-                                    <animate attributeName="stroke-dasharray" values="0,100;100,0;0,100" dur="3s" repeatCount="indefinite"/>
-                                </path>
-                            </g>
-                            
-                            <!-- Floating Success Icons -->
-                            <g transform="translate(100,250)">
-                                <animateTransform attributeName="transform" type="translate" values="100,250; 110,240; 100,250" dur="4s" repeatCount="indefinite"/>
-                                <circle cx="0" cy="0" r="25" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="2"/>
-                                <path d="M -10 0 L -3 7 L 10 -10" stroke="#10b981" stroke-width="3" fill="none"/>
-                            </g>
-                            
-                            <g transform="translate(600,350)">
-                                <animateTransform attributeName="transform" type="translate" values="600,350; 590,340; 600,350" dur="3.5s" repeatCount="indefinite"/>
-                                <circle cx="0" cy="0" r="20" fill="rgba(251,191,36,0.2)" stroke="#fbbf24" stroke-width="2"/>
-                                <path d="M -8 2 L 0 -8 L 8 2 M 0 -8 L 0 8" stroke="#fbbf24" stroke-width="3" fill="none"/>
-                            </g>
-                            
-                            <!-- Connecting Network Lines -->
-                            <g opacity="0.4">
-                                <path d="M 200 200 Q 300 150 400 200" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-dasharray="5,5">
-                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="2s" repeatCount="indefinite"/>
-                                </path>
-                                <path d="M 400 200 Q 500 250 600 200" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-dasharray="5,5">
-                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="2.5s" repeatCount="indefinite"/>
-                                </path>
-                                <path d="M 300 350 Q 400 300 500 350" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-dasharray="5,5">
-                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="3s" repeatCount="indefinite"/>
-                                </path>
-                            </g>
-                            
-                            <!-- Particle Effects -->
-                            <circle cx="150" cy="100" r="3" fill="#fbbf24" opacity="0.8">
-                                <animateTransform attributeName="transform" type="translate" values="0,0; 20,-30; 40,-60" dur="4s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.8;0;0.8" dur="4s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="650" cy="150" r="2" fill="#a855f7" opacity="0.6">
-                                <animateTransform attributeName="transform" type="translate" values="0,0; -15,25; -30,50" dur="5s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.6;0;0.6" dur="5s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="500" cy="450" r="4" fill="#10b981" opacity="0.7">
-                                <animateTransform attributeName="transform" type="translate" values="0,0; 10,-40; 20,-80" dur="3.5s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.7;0;0.7" dur="3.5s" repeatCount="indefinite"/>
-                            </circle>
-                        </svg>
-                        
-
-                        
-                        <!-- Enhanced Bottom Content -->
-                        <div class="absolute bottom-4 sm:bottom-8 left-4 sm:left-8 right-4 sm:right-8">
-                            <div class="bg-gradient-to-r from-purple-900/80 to-blue-900/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-white/20 shadow-2xl">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 sm:mb-4">
-                                    <div class="mb-2 sm:mb-0">
-                                        <h3 class="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-1 sm:mb-2 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                                            Future-Ready Solutions
-                                        </h3>
-                                        <p class="text-blue-200 text-sm sm:text-base lg:text-lg">Transforming businesses with cutting-edge innovation</p>
-                                    </div>
-                                    <div class="flex space-x-2">
-                                        <div class="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full animate-pulse"></div>
-                                        <div class="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
-                                        <div class="w-2 h-2 sm:w-3 sm:h-3 bg-purple-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
-                                    </div>
-                                </div>
-                                
-                                <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-3 sm:mb-4">
-                                    <div class="text-center">
-                                        <div class="text-lg sm:text-xl lg:text-2xl font-bold text-yellow-400">98%</div>
-                                        <div class="text-xs text-blue-200">Success Rate</div>
-                                    </div>
-                                    <div class="text-center">
-                                        <div class="text-lg sm:text-xl lg:text-2xl font-bold text-green-400">500+</div>
-                                        <div class="text-xs text-blue-200">Projects</div>
-                                    </div>
-                                    <div class="text-center">
-                                        <div class="text-lg sm:text-xl lg:text-2xl font-bold text-purple-400">50+</div>
-                                        <div class="text-xs text-blue-200">Countries</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 bg-green-400 rounded-full mr-2 sm:mr-3 animate-pulse flex-shrink-0"></div>
-                                    <span class="text-white text-xs sm:text-sm font-medium success-ticker">
-                                        Latest: Helped Fortune 500 company increase efficiency by 40%
-                                    </span>
-                                </div>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div class="animate-fadeInUp" style="animation-delay: 1.4s;">
+                                <span class="counter" data-target="10">0</span>
+                                <p class="text-sm text-[#333333] font-montserrat">Years Experience</p>
+                            </div>
+                            <div class="animate-fadeInUp" style="animation-delay: 1.6s;">
+                                <span class="counter" data-target="500">0</span>
+                                <p class="text-sm text-[#333333] font-montserrat">Clients Served</p>
+                            </div>
+                            <div class="animate-fadeInUp" style="animation-delay: 1.8s;">
+                                <span class="counter" data-target="1000">0</span>
+                                <p class="text-sm text-[#333333] font-montserrat">Projects Completed</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-                <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-      <!-- About Us Section -->
-        <section id="about" class="py-16 md:py-24 bg-white pattern-bg">
+        <!-- Services Section -->
+        <section id="services" class="py-16 bg-white">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 fade-element">
-                        About Us
-                    </h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto fade-element" style="animation-delay: 0.2s;">
-                        A dynamic and innovative company dedicated to empowering organizations worldwide.
-                    </p>
-                </div>
-
-                <div class="flex flex-col lg:flex-row items-center gap-12">
-                    <div class="lg:w-1/2 slide-left fade-element" style="animation-delay: 0.4s;">
-                        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                            alt="About Us" 
-                            class="rounded-lg shadow-xl w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="lg:w-1/2 text-gray-700 slide-right fade-element" style="animation-delay: 0.6s;">
-                        <p class="mb-6 leading-relaxed text-lg">
-                            Addis Mindsphere Training and Consultancy is a dynamic and innovative company engaged in Training, Research and Management Consultancy services dedicated to empowering organizations worldwide to achieve transformative growth and sustainable success.
-                        </p>
-                        <p class="mb-6 leading-relaxed text-lg">
-                            With a unique blend of academic rigor, practical expertise, and a commitment to ethical practices, Addis Mindsphere offers tailored solutions to address the complex challenges faced by corporations, financial institutions, government entities, nonprofit organizations, and startups.
-                        </p>
-                        <p class="leading-relaxed text-lg">
-                            By leveraging cutting-edge tools, global best practices, and a client-centric approach, the firm is poised to become a leader in the international arena.
-                        </p>
-                        <a href="#contact" class="mt-8 inline-flex items-center text-teal-600 font-semibold hover:text-teal-800 transition duration-300 group">
-                            Get in Touch
-                            <i class="fas fa-long-arrow-alt-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Vision & Mission Section -->
-        <section class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row items-center justify-between">
-                
-                <!-- Left Image -->
-                <div class="w-full md:w-1/4 flex justify-center md:justify-start mb-8 md:mb-0 fade-element slide-left">
-                    <img src="download.jpeg" 
-                        alt="Left character" 
-                        class="h-80 md:h-[28rem] object-contain transition duration-700 ease-in-out hover:scale-110 slow-move">
-                    </div>
-                <!-- Text -->
-                <div class="w-full md:w-1/2 text-center md:text-left px-4 fade-element">
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-700 mb-4">Our Mission</h3>
-                    <p class="text-gray-500 text-lg mb-6">
-                    Our mission is to send you sales—if we don’t, we fail. Sit back and watch your business grow as we have brands on our platform that can send you orders directly from their customers.
-                    </p>
-                    <button class="px-8 py-3 border border-blue-600 text-blue-600 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition duration-300">
-                    SCHEDULE A DEMO
-                    </button>
-                </div>
-
-                <!-- Right Image -->
-                <div class="w-full md:w-1/4 flex justify-center md:justify-end fade-element slide-right">
-                    <img src="mission-2.png" 
-                        alt="Right characters" 
-                        class="h-72 md:h-96 object-contain transition duration-700 ease-in-out hover:scale-110">
-                </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white py-12 md:py-24">
-            <div class="container mx-auto px-6 md:px-12 flex flex-col items-center">
-                <div class="md:w-1/2 text-center mb-6 md:mb-0">
-                    <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Our Vision</h3>
-                    <p class="text-gray-700 leading-relaxed text-lg md:text-xl max-w-3xl mx-auto text-center">
-                        Partner with WebJoint brands to grow your network. The bigger your network, the more orders that can be sent to your partners. It’s a no-brainer! More connections means increased revenue!
-                    </p>
-                </div>
-            </div>
-        </section>
-
-
-     <!-- Corporate Philosophies Section -->
-        <section class="py-20 bg-gradient-to-b from-white to-gray-50">
-        <div class="container mx-auto px-6">
-            <!-- Heading -->
-            <div class="text-center mb-16">
-            <h2 class="text-4xl font-extrabold text-gray-900 mb-4 fade-element">
-                Our Corporate Philosophies
-            </h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto fade-element" style="animation-delay: 0.2s;">
-                Our core values shape every interaction, fostering an environment of integrity, innovation, and commitment to client success.
-            </p>
-            </div>
-
-            <!-- Philosophy Grid -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Philosophy Card -->
-            <div class="wp-card fade-element" style="animation-delay: 0.3s;">
-                <div class="wp-icon">
-                <i class="fas fa-handshake"></i>
-                </div>
-                <h4>Integrity</h4>
-                <p>Upholding the highest standards of honesty and ethical conduct in every interaction.</p>
-            </div>
-
-            <div class="wp-card fade-element" style="animation-delay: 0.5s;">
-                <div class="wp-icon">
-                <i class="fas fa-lightbulb"></i>
-                </div>
-                <h4>Innovation</h4>
-                <p>Continuously seeking creative solutions and embracing emerging technologies.</p>
-            </div>
-
-            <div class="wp-card fade-element" style="animation-delay: 0.7s;">
-                <div class="wp-icon">
-                <i class="fas fa-users"></i>
-                </div>
-                <h4>Collaboration</h4>
-                <p>Believing diverse perspectives and teamwork drive superior outcomes and growth.</p>
-            </div>
-
-            <div class="wp-card fade-element" style="animation-delay: 0.9s;">
-                <div class="wp-icon">
-                <i class="fas fa-trophy"></i>
-                </div>
-                <h4>Excellence</h4>
-                <p>Setting ambitious goals and pursuing them relentlessly to exceed expectations.</p>
-            </div>
-
-            <div class="wp-card fade-element" style="animation-delay: 1.1s;">
-                <div class="wp-icon">
-                <i class="fas fa-globe-americas"></i>
-                </div>
-                <h4>Diversity & Inclusion</h4>
-                <p>Valuing and empowering every individual, celebrating unique talents and backgrounds.</p>
-            </div>
-
-            <div class="wp-card fade-element" style="animation-delay: 1.3s;">
-                <div class="wp-icon">
-                <i class="fas fa-seedling"></i>
-                </div>
-                <h4>Sustainability</h4>
-                <p>Contributing positively to society and developing expertise for all stakeholders.</p>
-            </div>
-            </div>
-        </div>
-        </section>
-
-
-       <!-- Services Section -->
-        <section id="services" class="py-20 md:py-28 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <!-- Section Title -->
-                <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 animate-fadeIn">Our Core Services Package</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto animate-fadeIn" style="animation-delay: 0.2s;">
-                    We deliver a comprehensive suite of world-class services across Training, Enterprise Support, and Research & Development.
-                </p>
-                </div>
-
-                <!-- Service Cards -->
-                <div class="grid lg:grid-cols-3 gap-12">
-                
-                <!-- Service Card 1: Training -->
-                <div class="group bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl animate-fadeIn" style="animation-delay: 0.4s;">
-                    <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Training Services" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-40 transition duration-500"></div>
-                    <h3 class="absolute bottom-4 left-4 text-white text-2xl font-bold">Training Services</h3>
-                    </div>
-                    <div class="p-8">
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        We design and deliver robust training programs that empower organizations to achieve operational excellence, foster innovation, and maintain compliance.
-                    </p>
-                    <a href="#" class="inline-block bg-teal-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-teal-700 transition duration-300">
-                        View Training Catalog <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    </div>
-                </div>
-
-                <!-- Service Card 2: Enterprise Support -->
-                <div class="group bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl animate-fadeIn" style="animation-delay: 0.6s;">
-                    <div class="relative">
-                    <img src="OIP.jpeg" alt="Enterprise Support" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-40 transition duration-500"></div>
-                    <h3 class="absolute bottom-4 left-4 text-white text-2xl font-bold">Enterprise Support</h3>
-                    </div>
-                    <div class="p-8">
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Our consultancy and advisory services help organizations optimize performance, manage risk, and drive strategic growth.
-                    </p>
-                    <a href="#" class="inline-block bg-teal-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-teal-700 transition duration-300">
-                        Explore Consultancy <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    </div>
-                </div>
-
-                <!-- Service Card 3: Research & Development -->
-                <div class="group bg-white rounded-2xl shadow-lg overflow-hidden transform transition duration-500 hover:-translate-y-3 hover:shadow-2xl animate-fadeIn" style="animation-delay: 0.8s;">
-                    <div class="relative">
-                    <img src="corporate-training (1).jpg" alt="Research & Development" class="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-40 transition duration-500"></div>
-                    <h3 class="absolute bottom-4 left-4 text-white text-2xl font-bold">Research & Development</h3>
-                    </div>
-                    <div class="p-8">
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        We drive innovation through targeted R&D services, helping organizations stay ahead in their sectors.
-                    </p>
-                    <a href="#" class="inline-block bg-teal-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-teal-700 transition duration-300">
-                        Discover R&D <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    </div>
-                </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Enterprise Support (Consultancy & Advisory) Services Section -->
-        <section id="enterprise-support" class="py-20 md:py-28 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col lg:flex-row items-center gap-12">
-                    <!-- Image Column -->
-                    <div class="lg:w-1/2 slide-left fade-element" style="animation-delay: 0.5s;">
-                        <img src="download (1).png" alt="Enterprise Support Services" class="rounded-2xl shadow-xl w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500">
-                    </div>
-
-                    <!-- Content Column -->
-                    <div class="lg:w-1/2 animate-fadeInRight">
-                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 fade-element">Enterprise Support Services</h2>
-                        <p class="text-lg text-gray-700 mb-8 leading-relaxed fade-element">
-                            Our consultancy and advisory services are designed to help organizations optimize performance, manage risk, and drive strategic growth.
-                        </p>
-
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4 fade-element">Key Offerings</h3>
-                        <ul class="space-y-4 text-gray-700">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-teal-600 mr-3 mt-1 text-xl fade-element"></i>
-                                <span class="fade-element"><strong class="font-semibold fade-element">Strategic Business Consulting:</strong> In-depth business assessments, SWOT analyses, and roadmap development for organizational transformation.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-teal-600 mr-3 mt-1 text-xl fade-element"></i>
-                                <span class="fade-element"><strong class="font-semibold fade-element">Regulatory Compliance & Risk Management:</strong> Guidance on navigating complex regulatory environments, especially in banking and finance.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-teal-600 mr-3 mt-1 text-xl fade-element"></i>
-                                <span class="fade-element"><strong class="font-semibold fade-element">Process Optimization:</strong> Streamlining operations, improving efficiency, and implementing best practices for sustainable growth.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-teal-600 mr-3 mt-1 text-xl fade-element"></i>
-                                <span class="fade-element"><strong class="font-semibold fade-element">Change Management:</strong> Support for organizational restructuring, digital adoption, and cultural transformation.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-teal-600 mr-3 mt-1 text-xl fade-element"></i>
-                                <span class="fade-element"><strong class="font-semibold">Technology Advisory:</strong> Recommendations for IT strategy, cybersecurity, data analytics, and digital banking solutions.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-teal-600 mr-3 mt-1 text-xl fade-element"></i>
-                                <span class="fade-element"><strong class="font-semibold">Financial Advisory:</strong> Budgeting, forecasting, tax planning, investment strategy, and portfolio management, with a focus on financial institutions.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-teal-600 mr-3 mt-1 text-xl fade-element"></i>
-                                <span class="fade-element"><strong class="font-semibold">Performance Monitoring:</strong> Ongoing evaluation and adjustment of implemented strategies to ensure alignment with organizational goals.</span>
-                            </li>
-                        </ul>
-                        <a href="#" class="inline-block mt-8 bg-teal-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-teal-700 transition duration-300 fade-element">
-                            Learn More About Our Consultancy <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Research & Development (R&D) Services Section -->
-        <section class="py-16 md:py-24 bg-teal-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 animate-fadeIn">Research & Development (R&D) Services</h2>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto animate-fadeIn" style="animation-delay: 0.2s;">
-                        We drive innovation through targeted R&D services, helping organizations stay ahead in their sectors by leveraging the latest technologies and methodologies.
-                    </p>
-                </div>
-
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- R&D Offering Card -->
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 0.4s;">
-                        <div class="text-4xl text-teal-600 mb-4"><i class="fas fa-search"></i></div>
-                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Applied Research</h4>
-                        <p class="text-gray-700">Conduct sector-specific research projects to address emerging challenges and opportunities.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 0.6s;">
-                        <div class="text-4xl text-teal-600 mb-4"><i class="fas fa-vial"></i></div>
-                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Innovation Labs</h4>
-                        <p class="text-gray-700">Facilitate the development and prototyping of new products, services, and business models.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 0.8s;">
-                        <div class="text-4xl text-teal-600 mb-4"><i class="fas fa-chart-area"></i></div>
-                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Technology Foresight</h4>
-                        <p class="text-gray-700">Analyze trends in AI, machine learning, big data, and fintech to inform strategic decisions.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 1s;">
-                        <div class="text-4xl text-teal-600 mb-4"><i class="fas fa-handshake"></i></div>
-                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Collaborative R&D</h4>
-                        <p class="text-gray-700">Partner with clients to co-create solutions that drive industry advancement.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 1.2s;">
-                        <div class="text-4xl text-teal-600 mb-4"><i class="fas fa-book-reader"></i></div>
-                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Knowledge Transfer</h4>
-                        <p class="text-gray-700">Disseminate research findings through workshops, seminars, and publications to ensure practical impact.</p>
-                    </div>
-                     <div class="bg-white p-6 rounded-lg shadow-md card-hover-effect animate-fadeIn" style="animation-delay: 1.4s;">
-                        <div class="text-4xl text-teal-600 mb-4"><i class="fas fa-industry"></i></div>
-                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Sector Focus</h4>
-                        <p class="text-gray-700">Special initiatives for the financial and banking sectors, including digital transformation, compliance technologies, and data-driven decision-making.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-       <!-- Why Choose Us Section - Large Advertisement Style (Text Unchanged) -->
-        <section id="why-choose-us" class="relative py-20 md:py-32 bg-gradient-to-br from-teal-600 to-indigo-900 text-white overflow-hidden">
-            <!-- Dynamic background elements for visual interest -->
-            <div class="absolute inset-0 opacity-10">
-                <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <defs>
-                        <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                            <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.2" />
-                            <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:0" />
-                        </radialGradient>
-                    </defs>
-                    <circle cx="20" cy="20" r="15" fill="url(#grad1)" class="animate-pulse-slow" style="animation-delay: 0s;"/>
-                    <circle cx="80" cy="50" r="20" fill="url(#grad1)" class="animate-pulse-slow" style="animation-delay: 2s;"/>
-                    <circle cx="40" cy="80" r="18" fill="url(#grad1)" class="animate-pulse-slow" style="animation-delay: 4s;"/>
-                    <circle cx="60" cy="10" r="12" fill="url(#grad1)" class="animate-pulse-slow" style="animation-delay: 6s;"/>
-                </svg>
-            </div>
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80'); opacity: 0.15; filter: grayscale(100%);"></div>
-
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="text-center mb-16 md:mb-24">
-                    <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight animate-heroIn">Why Choose Us?</h2>
-                    <p class="text-xl md:text-2xl font-light max-w-4xl mx-auto opacity-90 animate-heroIn" style="animation-delay: 0.3s;">
-                        Partner with Addis Mindsphere for unparalleled expertise, tailored solutions, and a commitment to measurable impact.
-                    </p>
-                    <a href="#contact" class="mt-10 inline-block bg-teal-400 text-gray-900 font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:bg-teal-300 hover:scale-105 transition-all duration-300 animate-heroIn" style="animation-delay: 0.6s;">
-                        Get Started Today
-                    </a>
-                </div>
-
-                <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-10">
-                    <!-- Benefit Card - Advert Style -->
-                    <div class="flex flex-col items-start p-8 bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl border border-teal-400/30 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-teal-500/40 animate-slideInLeft" style="animation-delay: 0.8s;">
-                        <div class="text-5xl text-teal-300 mb-6 drop-shadow-lg"><i class="fas fa-globe-americas"></i></div>
-                        <h4 class="text-2xl font-bold text-white mb-3 tracking-wide">Global Reach</h4>
-                        <p class="text-gray-200 text-lg leading-relaxed">Services delivered by experienced professionals with international expertise.</p>
-                    </div>
-                    <div class="flex flex-col items-start p-8 bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl border border-teal-400/30 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-teal-500/40 animate-slideInLeft" style="animation-delay: 1s;">
-                        <div class="text-5xl text-teal-300 mb-6 drop-shadow-lg"><i class="fas fa-cogs"></i></div>
-                        <h4 class="text-2xl font-bold text-white mb-3 tracking-wide">Tailored Solutions</h4>
-                        <p class="text-gray-200 text-lg leading-relaxed">Customizable offerings to meet the unique needs of each sector and organization.</p>
-                    </div>
-                    <div class="flex flex-col items-start p-8 bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl border border-teal-400/30 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-teal-500/40 animate-slideInLeft" style="animation-delay: 1.2s;">
-                        <div class="text-5xl text-teal-300 mb-6 drop-shadow-lg"><i class="fas fa-star"></i></div>
-                        <h4 class="text-2xl font-bold text-white mb-3 tracking-wide">Commitment to Excellence</h4>
-                        <p class="text-gray-200 text-lg leading-relaxed">Continuous improvement, innovation, and measurable impact assessments for every engagement.</p>
-                    </div>
-                    <div class="flex flex-col items-start p-8 bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl border border-teal-400/30 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-teal-500/40 animate-slideInLeft" style="animation-delay: 1.4s;">
-                        <div class="text-5xl text-teal-300 mb-6 drop-shadow-lg"><i class="fas fa-handshake"></i></div>
-                        <h4 class="text-2xl font-bold text-white mb-3 tracking-wide">Trusted Partner</h4>
-                        <p class="text-gray-200 text-lg leading-relaxed">Proven track record with private, public, and non-governmental clients.</p>
-                    </div>
-                    <div class="flex flex-col items-start p-8 bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl border border-teal-400/30 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-teal-500/40 animate-slideInLeft" style="animation-delay: 1.6s;">
-                        <div class="text-5xl text-teal-300 mb-6 drop-shadow-lg"><i class="fas fa-box-open"></i></div>
-                        <h4 class="text-2xl font-bold text-white mb-3 tracking-wide">Full Package Professional Support</h4>
-                        <p class="text-gray-200 text-lg leading-relaxed">Provides a package of services in Organizational Support, R&D and Competency Enhancement.</p>
-                    </div>
-                    <div class="flex flex-col items-start p-8 bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl border border-teal-400/30 hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-teal-500/40 animate-slideInLeft" style="animation-delay: 1.8s;">
-                        <div class="text-5xl text-teal-300 mb-6 drop-shadow-lg"><i class="fas fa-chart-network"></i></div>
-                        <h4 class="text-2xl font-bold text-white mb-3 tracking-wide">Customized Training Programs</h4>
-                        <p class="text-gray-200 text-lg leading-relaxed">Tailored content delivered by proven methodologies driven by in-depth needs assessment.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-   <!-- Our Team Section - Slider with 3 Visible, Slide 1 by 1 -->
-        <section id="team" class="py-16 md:py-24 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-                    Elevate Your Potential with Our Experts
+                <h2 class="text-3xl md:text-4xl font-bold font-montserrat text-[#1A3C6E] text-center mb-12 animate-fadeIn">
+                    Our Services
                 </h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Discover the visionary minds driving innovation and excellence. Our seasoned professionals are dedicated to empowering your success.
-                </p>
-                </div>
-
-                <!-- Swiper -->
-                <div class="swiper teamSwiper">
-                <div class="swiper-wrapper">
-                    
-                    <!-- All your cards go here -->
-                    <div class="swiper-slide">
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Ashenafi Haile" class="w-24 h-24 rounded-full object-cover mb-4 ring-4 ring-teal-400">
-                        <h4 class="text-xl font-bold text-gray-900">Ashenafi Haile (PhD)</h4>
-                        <p class="text-teal-600 font-semibold mb-2">Senior Trainer & Management Consultant</p>
-                        <p class="text-gray-600 text-sm mb-4">17+ years in management, research, and consultancy. Expertise in Leadership, Change Management, Strategic Thinking, Finance, and Risk Management.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-lg card-hover-effect animate-fadeIn" style="animation-delay: 0.2s;">
+                        <i class="fas fa-graduation-cap text-4xl text-[#00A896] mb-4"></i>
+                        <h3 class="text-xl font-bold font-montserrat text-[#1A3C6E] mb-2">Training</h3>
+                        <p class="text-[#333333] mb-4">Customized programs to enhance skills and performance.</p>
+                        <a href="src/service.html" class="text-[#00A896] font-semibold hover:text-[#008773] transition duration-300">Read More</a>
                     </div>
+                    <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-lg card-hover-effect animate-fadeIn" style="animation-delay: 0.4s;">
+                        <i class="fas fa-flask text-4xl text-[#00A896] mb-4"></i>
+                        <h3 class="text-xl font-bold font-montserrat text-[#1A3C6E] mb-2">Research</h3>
+                        <p class="text-[#333333] mb-4">In-depth studies for informed decision-making.</p>
+                        <a href="src/service.html" class="text-[#00A896] font-semibold hover:text-[#008773] transition duration-300">Read More</a>
                     </div>
-
-                    <!-- Repeat all other 6 cards as swiper-slide (I kept them same as you gave) -->
-
-                    <div class="swiper-slide">
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Sisay Oda" class="w-24 h-24 rounded-full object-cover mb-4 ring-4 ring-blue-400">
-                        <h4 class="text-xl font-bold text-gray-900">Ato Sisay Oda Melka (MA, PhD Candidate)</h4>
-                        <p class="text-blue-600 font-semibold mb-2">Human Resources Development Expert</p>
-                        <p class="text-gray-600 text-sm mb-4">13+ years at Commercial Bank of Ethiopia. Specializes in competency-based HR systems, talent management, and HR analytics.</p>
+                    <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-lg card-hover-effect animate-fadeIn" style="animation-delay: 0.6s;">
+                        <i class="fas fa-building text-4xl text-[#00A896] mb-4"></i>
+                        <h3 class="text-xl font-bold font-montserrat text-[#1A3C6E] mb-2">Consultancy</h3>
+                        <p class="text-[#333333] mb-4">Strategic solutions for organizational growth.</p>
+                        <a href="src/service.html" class="text-[#00A896] font-semibold hover:text-[#008773] transition duration-300">Read More</a>
                     </div>
+                    <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-lg card-hover-effect animate-fadeIn" style="animation-delay: 0.8s;">
+                        <i class="fas fa-handshake text-4xl text-[#00A896] mb-4"></i>
+                        <h3 class="text-xl font-bold font-montserrat text-[#1A3C6E] mb-2">Advisory</h3>
+                        <p class="text-[#333333] mb-4">Expert guidance for sustainable success.</p>
+                        <a href="src/service.html" class="text-[#00A896] font-semibold hover:text-[#008773] transition duration-300">Read More</a>
                     </div>
-
-                    <div class="swiper-slide">
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center">
-                        <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Abera Demisse" class="w-24 h-24 rounded-full object-cover mb-4 ring-4 ring-purple-400">
-                        <h4 class="text-xl font-bold text-gray-900">Abera Demisse Tessema (PhD)</h4>
-                        <p class="text-purple-600 font-semibold mb-2">Assistant Professor, Consultant</p>
-                        <p class="text-gray-600 text-sm mb-4">15+ years in leadership development. Expertise in Leadership, HRD, Organizational Transformation, Strategic Planning.</p>
-                    </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center">
-                        <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Mekbib Mulugeta" class="w-24 h-24 rounded-full object-cover mb-4 ring-4 ring-red-400">
-                        <h4 class="text-xl font-bold text-gray-900">Ato Mekbib Mulugeta (MBA)</h4>
-                        <p class="text-red-600 font-semibold mb-2">Banking & Business Development Expert</p>
-                        <p class="text-gray-600 text-sm mb-4">20 years in banking, academia, and business. Expertise in Credit Appraisal, Risk Management, Strategic Planning, Digital Lending.</p>
-                    </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center">
-                        <img src="https://randomuser.me/api/portraits/men/63.jpg" alt="Mohammed Hassen" class="w-24 h-24 rounded-full object-cover mb-4 ring-4 ring-green-400">
-                        <h4 class="text-xl font-bold text-gray-900">Professor Mohammed Hassen</h4>
-                        <p class="text-green-600 font-semibold mb-2">Accounting & Finance Expert</p>
-                        <p class="text-gray-600 text-sm mb-4">Renowned with Big Eight audit background, corporate finance. Expertise in Auditing, Compliance, Financial Reporting, Risk Management, Forensic Accounting.</p>
-                    </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center">
-                        <img src="https://randomuser.me/api/portraits/men/23.jpg" alt="Teshome Haile" class="w-24 h-24 rounded-full object-cover mb-4 ring-4 ring-orange-400">
-                        <h4 class="text-xl font-bold text-gray-900">Ato Teshome Haile (MBA)</h4>
-                        <p class="text-orange-600 font-semibold mb-2">Digital Banking Specialist</p>
-                        <p class="text-gray-600 text-sm mb-4">21+ years in Ethiopian banking sector. Specializing in Digital Banking, Customer Service, and Deposit Mobilization.</p>
-                    </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center">
-                        <img src="https://randomuser.me/api/portraits/men/47.jpg" alt="Solomon W/Gebriel" class="w-24 h-24 rounded-full object-cover mb-4 ring-4 ring-pink-400">
-                        <h4 class="text-xl font-bold text-gray-900">Master Trainer Solomon W/Gebriel</h4>
-                        <p class="text-pink-600 font-semibold mb-2">Veteran Trainer & Business Leader</p>
-                        <p class="text-gray-600 text-sm mb-4">28 years as trainer, banker, insurance professional. Expertise in Personal Development, Sales Training, Credit Analysis, Leadership, Team Building.</p>
-                    </div>
-                    </div>
-
-                </div>
-
-                <!-- Pagination & Navigation -->
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </section>
 
-      <!-- Impact Highlights & Testimonies Section -->
-        <section class="py-16 md:py-24 bg-white pattern-bg relative overflow-hidden">
+        <!-- Why Choose Us Section -->
+        <section id="why-choose-us" class="py-16 bg-[#1A3C6E] text-white">
             <div class="container mx-auto px-6">
-                <!-- Title -->
-                <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 animate-fadeInUp">
-                    Impact Highlights & Testimonies
+                <h2 class="text-3xl md:text-4xl font-bold font-montserrat text-center mb-12 animate-fadeIn">
+                    Why Choose Us
                 </h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto animate-fadeInUp" style="animation-delay: 0.2s;">
-                    Our track record speaks for itself – delivering tangible results and fostering lasting success for our clients.
-                </p>
-                </div>
-
-                <!-- Cards -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Impact Highlight Card -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-fadeInUp" style="animation-delay:0.3s;">
-                    <img src="https://image.pollinations.ai/prompt/man%20presenting%20services%20to%20team" alt="Services" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">1000+ Services Provided</h4>
-                    <p class="text-gray-700">Trainings, Coaching, R&D and Advisory Services provided individually and in Team Ups.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center animate-fadeIn" style="animation-delay: 0.2s;">
+                        <i class="fas fa-clock text-4xl text-[#F4B400] mb-4"></i>
+                        <h3 class="text-xl font-bold font-montserrat mb-2">10+ Years Experience</h3>
+                        <p class="text-white/90">Proven expertise in delivering results.</p>
                     </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-fadeInUp" style="animation-delay:0.5s;">
-                    <img src="https://image.pollinations.ai/prompt/man%20presenting%20policy%20to%20team" alt="Policy" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Policy & Procedure Development</h4>
-                    <p class="text-gray-700">Multiple Policy, Procedure, Manuals and Papers produced for diverse entities.</p>
+                    <div class="text-center animate-fadeIn" style="animation-delay: 0.4s;">
+                        <i class="fas fa-globe text-4xl text-[#F4B400] mb-4"></i>
+                        <h3 class="text-xl font-bold font-montserrat mb-2">Global Reach</h3>
+                        <p class="text-white/90">Serving clients across multiple continents.</p>
                     </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-fadeInUp" style="animation-delay:0.7s;">
-                    <img src="Consulting.svg" alt="Plans" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Strategic & Operational Plans</h4>
-                    <p class="text-gray-700">Numerous Strategic & Operational Plans prepared for various organizations.</p>
+                    <div class="text-center animate-fadeIn" style="animation-delay: 0.6s;">
+                        <i class="fas fa-users text-4xl text-[#F4B400] mb-4"></i>
+                        <h3 class="text-xl font-bold font-montserrat mb-2">Client-Centered</h3>
+                        <p class="text-white/90">Tailored solutions for your unique needs.</p>
                     </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-fadeInUp" style="animation-delay:0.9s;">
-                    <img src="images.png" alt="Programs" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Program & Project Design</h4>
-                    <p class="text-gray-700">Diverse Programs and Projects designed, implemented, operationalized and appraised.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-fadeInUp" style="animation-delay:1.1s;">
-                    <img src="download (1).png" alt="Assessments" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Baseline & Impact Assessments</h4>
-                    <p class="text-gray-700">Multiple baseline and Impact assessments conducted for effective evaluation.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl animate-fadeInUp" style="animation-delay:1.3s;">
-                    <img src="corporate-training (1).jpg" alt="Change Management" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Change Management Execution</h4>
-                    <p class="text-gray-700">Implemented a number of change management and transformation adaptation works executed.</p>
-                    </div>
-                </div>
                 </div>
             </div>
         </section>
 
-        <!-- Partnerships & Alliances and Quality & Ethics Section -->
-        <section class="py-16 md:py-24 bg-teal-50">
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 bg-[#F5F5F5]">
             <div class="container mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <!-- Partnerships & Alliances -->
-                    <div class="bg-white p-8 rounded-lg shadow-xl card-hover-effect animate-slideInLeft" style="animation-delay: 0.2s;">
-                        <h3 class="text-3xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
-                            <i class="fas fa-handshake mr-4 text-teal-600"></i> Partnerships & Alliances
-                        </h3>
-                        <ul class="list-disc list-inside space-y-3 text-lg text-gray-700">
-                            <li>AMS follows strategic collaborations with international and domestic training & consulting firms and institutions.</li>
-                            <li>Strategic alliances with technology providers for digital transformation projects.</li>
-                            <li>Membership in multiple professional & business networks.</li>
-                        </ul>
+                <h2 class="text-3xl md:text-4xl font-bold font-montserrat text-[#1A3C6E] text-center mb-12 animate-fadeIn">
+                    Testimonials & Partners
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg card-hover-effect animate-fadeIn" style="animation-delay: 0.2s;">
+                        <p class="text-[#333333] italic mb-4">"Addis Mindsphere transformed our training programs, boosting employee performance."</p>
+                        <p class="font-semibold text-[#1A3C6E]">- John Doe, CEO, ABC Corp</p>
                     </div>
-                    <!-- Commitment to Quality & Ethics -->
-                    <div class="bg-white p-8 rounded-lg shadow-xl card-hover-effect animate-slideInRight" style="animation-delay: 0.4s;">
-                        <h3 class="text-3xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
-                            <i class="fas fa-award mr-4 text-teal-600"></i> Commitment to Quality & Ethics
-                        </h3>
-                        <ul class="list-disc list-inside space-y-3 text-lg text-gray-700">
-                            <li>Adherence to international standards.</li>
-                            <li>Continuous professional development for staff.</li>
-                            <li>Rigorous quality assurance and client feedback mechanisms.</li>
-                            <li>Transparent, ethical, and socially responsible practices.</li>
-                        </ul>
+                    <div class="bg-white p-6 rounded-lg shadow-lg card-hover-effect animate-fadeIn" style="animation-delay: 0.4s;">
+                        <p class="text-[#333333] italic mb-4">"Their consultancy services streamlined our operations significantly."</p>
+                        <p class="font-semibold text-[#1A3C6E]">- Jane Smith, Director, XYZ NGO</p>
                     </div>
+                </div>
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Partner Logo" class="h-12 mx-auto animate-fadeIn" style="animation-delay: 0.6s;">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Partner Logo" class="h-12 mx-auto animate-fadeIn" style="animation-delay: 0.8s;">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Partner Logo" class="h-12 mx-auto animate-fadeIn" style="animation-delay: 1s;">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Partner Logo" class="h-12 mx-auto animate-fadeIn" style="animation-delay: 1.2s;">
                 </div>
             </div>
         </section>
 
-        <!-- Target Markets Section -->
-        <section class="min-h-screen gradient-bg flex items-center justify-center p-6 w-full">
-        <div class="relative w-full max-w-6xl">
-            
-            <!-- Title -->
-            <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Our Target Markets</h2>
-            <p class="text-white/80 max-w-2xl mx-auto">
-                We serve a diverse ecosystem of organizations – from global corporations to startups, nonprofits, and academia.
-            </p>
-            </div>
-
-            <!-- Grid Layout (Mobile & Tablet) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:hidden">
-            <!-- Financial Institutions -->
-            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-                <div class="w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center">
-                <i class="fas fa-money-check-alt text-2xl text-white"></i>
-                </div>
-                <div>
-                <h3 class="font-semibold text-white">Financial Institutions</h3>
-                <p class="text-white/70 text-sm">Banks • Insurance • Investment</p>
-                </div>
-            </div>
-
-            <!-- Corporations -->
-            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-                <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center">
-                <i class="fas fa-building text-2xl text-white"></i>
-                </div>
-                <div>
-                <h3 class="font-semibold text-white">Corporations</h3>
-                <p class="text-white/70 text-sm">SMEs • Multinationals</p>
-                </div>
-            </div>
-
-            <!-- Government -->
-            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-                <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center">
-                <i class="fas fa-gavel text-2xl text-white"></i>
-                </div>
-                <div>
-                <h3 class="font-semibold text-white">Government</h3>
-                <p class="text-white/70 text-sm">Ministries • Agencies</p>
-                </div>
-            </div>
-
-            <!-- Nonprofits -->
-            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-                <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center">
-                <i class="fas fa-hands-helping text-2xl text-white"></i>
-                </div>
-                <div>
-                <h3 class="font-semibold text-white">Nonprofits</h3>
-                <p class="text-white/70 text-sm">NGOs • Foundations</p>
-                </div>
-            </div>
-
-            <!-- Startups -->
-            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-                <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
-                <i class="fas fa-rocket text-2xl text-white"></i>
-                </div>
-                <div>
-                <h3 class="font-semibold text-white">Startups</h3>
-                <p class="text-white/70 text-sm">Entrepreneurs • Ventures</p>
-                </div>
-            </div>
-
-            <!-- Academic -->
-            <div class="bg-white/10 rounded-2xl shadow-lg p-6 flex items-center gap-4 hover:scale-105 transition">
-                <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center">
-                <i class="fas fa-book text-2xl text-white"></i>
-                </div>
-                <div>
-                <h3 class="font-semibold text-white">Academic</h3>
-                <p class="text-white/70 text-sm">Universities • Research</p>
-                </div>
-            </div>
-            </div>
-
-            <!-- Circular Layout (Desktop) -->
-            <div class="hidden lg:block relative w-full max-w-4xl aspect-square mx-auto">
-            
-            <!-- Central Hub -->
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                <div class="w-32 h-32 bg-white rounded-full shadow-2xl flex items-center justify-center pulsing fade-in">
-                <div class="text-center">
-                    <i class="fas fa-network-wired text-4xl text-indigo-600 mb-2"></i>
-                    <p class="text-sm font-bold text-gray-800">Market<br>Ecosystem</p>
-                </div>
-                </div>
-            </div>
-
-            <!-- Rotating Circle with Segments -->
-            <div class="absolute inset-0 rotating-circle">
-                
-                <!-- Financial Institutions -->
-                <div class="segment absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fade-in">
-                <div class="w-24 h-24 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full shadow-lg flex items-center justify-center">
-                    <i class="fas fa-money-check-alt text-2xl text-white"></i>
-                </div>
-                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
-                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Financial Institutions</p>
-                    <p class="text-white/80 text-xs">Banks • Insurance • Investment</p>
-                </div>
-                </div>
-
-                <!-- Corporations -->
-                <div class="segment absolute top-1/4 right-0 transform translate-x-1/2 -translate-y-1/2 fade-in">
-                <div class="w-24 h-24 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full shadow-lg flex items-center justify-center">
-                    <i class="fas fa-building text-2xl text-white"></i>
-                </div>
-                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
-                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Corporations</p>
-                    <p class="text-white/80 text-xs">SMEs • Multinationals</p>
-                </div>
-                </div>
-
-                <!-- Government -->
-                <div class="segment absolute bottom-1/4 right-0 transform translate-x-1/2 translate-y-1/2 fade-in">
-                <div class="w-24 h-24 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full shadow-lg flex items-center justify-center">
-                    <i class="fas fa-gavel text-2xl text-white"></i>
-                </div>
-                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
-                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Government</p>
-                    <p class="text-white/80 text-xs">Ministries • Agencies</p>
-                </div>
-                </div>
-
-                <!-- Nonprofits -->
-                <div class="segment absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 fade-in">
-                <div class="w-24 h-24 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full shadow-lg flex items-center justify-center">
-                    <i class="fas fa-hands-helping text-2xl text-white"></i>
-                </div>
-                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
-                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Nonprofits</p>
-                    <p class="text-white/80 text-xs">NGOs • Foundations</p>
-                </div>
-                </div>
-
-                <!-- Startups -->
-                <div class="segment absolute bottom-1/4 left-0 transform -translate-x-1/2 translate-y-1/2 fade-in">
-                <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full shadow-lg flex items-center justify-center">
-                    <i class="fas fa-rocket text-2xl text-white"></i>
-                </div>
-                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-center">
-                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Startups</p>
-                    <p class="text-white/80 text-xs">Entrepreneurs • Ventures</p>
-                </div>
-                </div>
-
-                <!-- Academic -->
-                <div class="segment absolute top-1/4 left-0 transform -translate-x-1/2 -translate-y-1/2 fade-in">
-                <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full shadow-lg flex items-center justify-center">
-                    <i class="fas fa-book text-2xl text-white"></i>
-                </div>
-                <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
-                    <p class="segment-text text-white font-semibold text-sm whitespace-nowrap">Academic</p>
-                    <p class="text-white/80 text-xs">Universities • Research</p>
-                </div>
-                </div>
-            </div>
-
-            <!-- Connecting Circle -->
-            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
-                <circle cx="200" cy="200" r="180" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="5,5" class="flow-line"/>
-            </svg>
-            </div>
-        </div>
-        </section>
-
-        <!-- Contact Us Section -->
-        <section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-teal-600 to-cyan-700 text-white relative overflow-hidden">
-            <div class="absolute inset-0 bg-pattern-bg opacity-10"></div>
-            <div class="container mx-auto px-6 relative z-10 text-center">
-                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 animate-fadeIn">Get in Touch With Us</h2>
-                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-90 animate-fadeIn" style="animation-delay: 0.2s;">
-                    We're eager to discuss your training, research, or consultancy needs. Reach out to our team today!
-                </p>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <!-- Contact Information -->
-                    <div class="text-left animate-slideInLeft" style="animation-delay: 0.4s;">
-                        <h3 class="text-2xl font-bold mb-6 flex items-center">
-                            <i class="fas fa-info-circle mr-3 text-teal-200"></i> Our Details
-                        </h3>
-                        <div class="space-y-6">
-                            <p class="flex items-center text-lg">
-                                <i class="fas fa-envelope mr-4 text-teal-200 text-xl"></i>
-                                <a href="mailto:addismindsphere@gmail.com" class="hover:underline">addismindsphere@gmail.com</a>
-                            </p>
-                            <p class="flex items-center text-lg">
-                                <i class="fas fa-phone-alt mr-4 text-teal-200 text-xl"></i>
-                                +251911606147 / +251911336043
-                            </p>
-                            <p class="flex items-center text-lg">
-                                <i class="fas fa-map-marker-alt mr-4 text-teal-200 text-xl"></i>
-                                Addis Ababa, Ethiopia
-                            </p>
-                        </div>
-                        <div class="mt-8 flex space-x-4">
-                            <a href="#" class="text-teal-200 hover:text-white transition duration-300 text-2xl"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-teal-200 hover:text-white transition duration-300 text-2xl"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-teal-200 hover:text-white transition duration-300 text-2xl"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold font-montserrat text-[#1A3C6E] text-center mb-12 animate-fadeIn">
+                    Contact Us
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="animate-fadeIn" style="animation-delay: 0.2s;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.511242352301!2d38.74679931475715!3d9.019193793529402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85b560c06c29%3A0x7c76b2b3a6a37a58!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1695837043896!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-
-                    <!-- Contact Form -->
-                    <div class="bg-white p-8 rounded-lg shadow-2xl text-left animate-slideInRight" style="animation-delay: 0.6s;">
-                        <h3 class="text-2xl font-bold mb-6">Send Us a Message</h3>
+                    <div class="bg-[#F5F5F5] p-8 rounded-lg shadow-lg animate-fadeIn" style="animation-delay: 0.4s;">
                         <form action="#" method="POST" class="space-y-6">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                                <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:text-sm" placeholder="Your Name" required>
+                                <label for="name" class="block text-sm font-medium text-[#333333] font-montserrat">Name</label>
+                                <input type="text" id="name" name="name" class="mt-1 block w-full px-4 py-2 border border-[#333333]/20 rounded-md focus:ring-[#00A896] focus:border-[#00A896]" placeholder="Your Name" required>
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                                <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:text-sm" placeholder="your@example.com" required>
+                                <label for="email" class="block text-sm font-medium text-[#333333] font-montserrat">Email</label>
+                                <input type="email" id="email" name="email" class="mt-1 block w-full px-4 py-2 border border-[#333333]/20 rounded-md focus:ring-[#00A896] focus:border-[#00A896]" placeholder="your@example.com" required>
                             </div>
                             <div>
-                                <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
-                                <input type="text" id="subject" name="subject" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:text-sm" placeholder="How can we help you?" required>
+                                <label for="message" class="block text-sm font-medium text-[#333333] font-montserrat">Message</label>
+                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-2 border border-[#333333]/20 rounded-md focus:ring-[#00A896] focus:border-[#00A896]" placeholder="Your message" required></textarea>
                             </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:text-sm" placeholder="Tell us more about your needs" required></textarea>
-                            </div>
-                            <button type="submit" class="w-full inline-flex justify-center py-3 px-6 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition duration-300 ease-in-out">
-                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            <button type="submit" class="w-full bg-[#F4B400] text-[#1A3C6E] font-bold font-montserrat py-3 rounded-md hover:bg-[#D4A017] transition duration-300 card-hover-effect">
+                                Send Message
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1A3C6E] text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-lg font-bold font-montserrat text-[#F4B400] mb-4">Addis Mindsphere</h3>
+                    <p class="text-white/90">Empowering organizations for transformative growth.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold font-montserrat text-[#F4B400] mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#hero" class="text-white/90 hover:text-[#00A896] transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-white/90 hover:text-[#00A896] transition duration-300">About</a></li>
+                        <li><a href="src/service.html" class="text-white/90 hover:text-[#00A896] transition duration-300">Services</a></li>
+                        <li><a href="#contact" class="text-white/90 hover:text-[#00A896] transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold font-montserrat text-[#F4B400] mb-4">Follow Us</h3>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-white/90 hover:text-[#00A896] transition duration-300"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-white/90 hover:text-[#00A896] transition duration-300"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-white/90 hover:text-[#00A896] transition duration-300"><i class="fab fa-linkedin-in text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-white/80">
+                &copy; <span id="current-year"></span> Addis Mindsphere Training & Consultancy. All rights reserved.
+            </div>
+        </div>
+    </footer>
 
     <!-- Scroll to Top Button -->
     <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-10">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-                <div class="text-lg font-bold text-teal-400">Addis Mindsphere</div>
-                <div class="text-sm">
-                    &copy; <span id="current-year"></span> Addis Mindsphere Training & Consultancy. All rights reserved.
-                </div>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-<!-- SwiperJS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
- <script>
-        // Mobile menu functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Form submission handler
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(event.target);
-            const name = formData.get('name') || event.target.querySelector('input[placeholder="Your Name"]').value;
-            const email = formData.get('email') || event.target.querySelector('input[placeholder="Your Email"]').value;
-            const organization = formData.get('organization') || event.target.querySelector('input[placeholder="Organization"]').value;
-            const message = formData.get('message') || event.target.querySelector('textarea').value;
-            
-            // Show success message
-            const button = event.target.querySelector('button[type="submit"]');
-            const originalText = button.textContent;
-            button.textContent = 'Message Sent! ✓';
-            button.style.backgroundColor = '#10B981';
-            
-            // Reset form
-            event.target.reset();
-            
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                button.textContent = originalText;
-                button.style.backgroundColor = '';
-            }, 3000);
-            
-            console.log('Form submitted:', { name, email, organization, message });
-        }
-
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-white', 'shadow-lg');
-            } else {
-                navbar.classList.remove('shadow-lg');
-            }
-        });
-
-        // Counter Animation
-        function animateCounter(element, target, duration = 2000) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            
-            function updateCounter() {
-                start += increment;
-                if (start < target) {
-                    element.textContent = Math.floor(start);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target;
-                }
-            }
-            updateCounter();
-        }
-
-        // Success Stories Ticker
-        const successStories = [
-            "Latest: Helped Fortune 500 company increase efficiency by 40%",
-            "Recent: Trained 1000+ employees in digital transformation",
-            "Achievement: 95% client retention rate this quarter",
-            "Success: Reduced operational costs by 30% for major bank",
-            "Impact: Improved customer satisfaction by 50% for retail chain"
-        ];
-
-        let currentStoryIndex = 0;
-        function updateSuccessTicker() {
-            const ticker = document.querySelector('.success-ticker');
-            if (ticker) {
-                ticker.style.opacity = '0';
-                setTimeout(() => {
-                    ticker.textContent = successStories[currentStoryIndex];
-                    ticker.style.opacity = '1';
-                    currentStoryIndex = (currentStoryIndex + 1) % successStories.length;
-                }, 300);
-            }
-        }
-
-        // Start ticker
-        setInterval(updateSuccessTicker, 4000);
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    
-                    // Animate counters when they come into view
-                    const counters = entry.target.querySelectorAll('.counter');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.getAttribute('data-target'));
-                        animateCounter(counter, target);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.animate-fadeInUp, .animate-slideInLeft, .animate-slideInRight').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            observer.observe(el);
-        });
-    </script>
-
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982bf62fa2aa8a5f',t:'MTc1ODQ4Mjg2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-<script>
-  var swiper = new Swiper(".teamSwiper", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    loop: true,
-    slidesPerGroup: 1, // move 1 at a time
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-      0: { slidesPerView: 1, slidesPerGroup: 1 },
-      768: { slidesPerView: 2, slidesPerGroup: 1 },
-      1024: { slidesPerView: 3, slidesPerGroup: 1 },
-    }
-  });
-</script>
-    
-<script>
-    // Preloader functionality
-window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
-    preloader.classList.add('hidden');
-    // Optionally, remove the preloader from the DOM after the transition
-    setTimeout(() => {
-        preloader.style.display = 'none';
-    }, 500); // Match the transition duration (0.5s)
-});
-</script>
-<script>
-const elements = document.querySelectorAll(".fade-element");
-
-const observers = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-}, { threshold: 0.2 });
-
-elements.forEach(el => observers.observe(el));
-</script>
-
-    <!-- JavaScript for Mobile Menu, Scroll-to-Top, and Active Nav Links -->
     <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.classList.add('hidden');
+            setTimeout(() => preloader.style.display = 'none', 500);
+        });
+
         // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('mobile-menu').classList.add('hidden');
+                const targetId = anchor.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    const offsetTop = target.getBoundingClientRect().top + window.scrollY - document.getElementById('navbar').offsetHeight;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            });
+        });
 
-        // Scroll to Top Button functionality
-        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
-        window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                scrollToTopBtn.style.display = "block";
-            } else {
-                scrollToTopBtn.style.display = "none";
-            }
-        };
-
+        // Scroll-to-Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            scrollToTopBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+        });
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Smooth Scrolling for Navigation Links and Active State
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        // Set Current Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
 
-                document.getElementById('mobile-menu').classList.add('hidden'); // Hide mobile menu on click
-
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - (document.getElementById('navbar').offsetHeight - 1); // Adjust for fixed navbar height
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Optional: Intersection Observer for animating elements on scroll
-        // This is a more performant way than checking scroll position constantly.
-        const animateOnScrollElements = document.querySelectorAll('.animate-fadeIn, .animate-slideInLeft, .animate-slideInRight');
-
+        // Fade-in and Fade-in-up Animations on Scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible'); 
-                     observer.unobserve(entry.target);
+                    if (entry.target.classList.contains('animate-fadeIn')) {
+                        entry.target.classList.add('animate-fadeIn');
+                    } else if (entry.target.classList.contains('animate-fadeInUp')) {
+                        entry.target.classList.add('animate-fadeInUp');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-fadeIn, .animate-fadeInUp').forEach(el => observer.observe(el));
+
+        // Number Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const animateCounter = (counter) => {
+            const target = +counter.getAttribute('data-target');
+            const increment = target / 100;
+            let count = 0;
+            const updateCounter = () => {
+                if (count < target) {
+                    count += increment;
+                    counter.textContent = Math.ceil(count);
+                    requestAnimationFrame(updateCounter);
                 } else {
-                     entry.target.classList.remove('is-visible');
+                    counter.textContent = target + (target === 10 ? '+' : '+');
+                }
+            };
+            updateCounter();
+        };
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    counters.forEach(animateCounter);
+                    counterObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 }); 
-
-        animateOnScrollElements.forEach(element => {
-            observer.observe(element);
-        });
-
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - document.getElementById('navbar').offsetHeight; // Adjust for navbar height
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.href.includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
+        }, { threshold: 0.5 });
+        counterObserver.observe(document.querySelector('.grid.grid-cols-3'));
     </script>
 </body>
 </html>
